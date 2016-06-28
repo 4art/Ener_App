@@ -7,19 +7,20 @@ $(document).ready(function() {
 			return;
 		}
 		cop.attr('id', 'tCop'+i);
-		//cop.find('#number1').attr('id', 'number'+i).text(i+".");
+		cop.find('#number1').attr('id', 'number'+i).text(i+".");
 		cop.find('#product1').attr('id', 'product'+i).val('');
 		cop.find('#weight1').attr('id', 'weight'+i).val('');
 		cop.find('#protein1').attr('id', 'protein'+i);
 		cop.find('#fatt1').attr('id', 'fatt' +i);
 		cop.find('#carbonates1').attr('id', 'carbonates'+i);
 		cop.find('#kcal1').attr('id', 'kcal'+i);
+		cop.find('#hidden1').attr('id', 'hidden'+i);
 		cop.append('<th><a></a></th>').find('a').attr('id', i).text('Löschen');
 		cop.appendTo('tbody');
 		i++;
 		delEl();
 		modalAdd();
-		//autoCom();
+		autoCom();
 	});
 });
 function delEl(){
