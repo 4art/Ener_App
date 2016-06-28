@@ -2,6 +2,10 @@ var i=2;
 $(document).ready(function() {
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
+		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
+			alert('error');
+			return;
+		}
 		cop.attr('id', 'tCop'+i);
 		//cop.find('#number1').attr('id', 'number'+i).text(i+".");
 		cop.find('#product1').attr('id', 'product'+i).val('');
@@ -15,7 +19,7 @@ $(document).ready(function() {
 		i++;
 		delEl();
 		modalAdd();
-		autoCom();
+		//autoCom();
 	});
 });
 function delEl(){
