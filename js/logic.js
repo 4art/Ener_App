@@ -2,7 +2,7 @@ var i=2;
 $(document).ready(function() {
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
-		if (cop.find('#product'+(i-1)).val()=="") {
+		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
 			alert('error');
 			return;
 		}
