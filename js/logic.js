@@ -1,6 +1,7 @@
 var i=2;
 $(document).ready(function() {
 	$('#button').click(function() {
+		if () {}
 		var cop = $('#tCop').clone();
 		cop.attr('id', 'tCop'+i);
 		//cop.find('#number1').attr('id', 'number'+i).text(i+".");
