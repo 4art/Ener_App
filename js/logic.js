@@ -1,3 +1,14 @@
+/*need to add!!!! 
+angular:
+	disactive button
+	red border with error text
+	dinamic add value
+jquery:
+	json with valid fron db
+	ui to name with auto insert to hidden
+*/
+
+
 var i=2;
 $(document).ready(function() {
 	$('#button').click(function() {
@@ -20,7 +31,7 @@ $(document).ready(function() {
 		i++;
 		delEl();
 		modalAdd();
-		autoCom();
+		//autoCom();
 	});
 });
 function delEl(){
