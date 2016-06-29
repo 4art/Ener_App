@@ -25,7 +25,10 @@ $(document).ready(function() {
 		cop.find('#fatt1').attr('id', 'fatt' +i);
 		cop.find('#carbonates1').attr('id', 'carbonates'+i);
 		cop.find('#kcal1').attr('id', 'kcal'+i);
-		cop.find('#hidden1').attr('id', 'hidden'+i);
+		cop.find('#hiddenP1').attr('id', 'hiddenP'+i);
+		cop.find('#hiddenF1').attr('id', 'hiddenF'+i);
+		cop.find('#hiddenC1').attr('id', 'hiddenC'+i);
+		cop.find('#hiddenK1').attr('id', 'hiddenK'+i);
 		cop.append('<th><a></a></th>').find('a').attr('id', i).text('Löschen');
 		cop.appendTo('tbody');
 		i++;
