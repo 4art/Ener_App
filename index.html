@@ -17,7 +17,7 @@ a{
  <script type="text/javascript" src="js/logic.js"></script>
 </head>
 <body>
-<div class="container" ng-controller="Ctrl">
+<div class="container" ng-controller="mainCtrl">
 	  	<h2>Energize</h2>
 	  	<table class="table table-hover">
 	    	<thead>
@@ -35,12 +35,12 @@ a{
 	    	<tbody>
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
-	    	            <th><input type='text' id="product1" ></th>
-	    	            <th><input type="number" id="weight1"/></th>
-	    	            <th id="protein1"></th>
-	    	            <th id="fatt1"></th>
-	    	            <th id="carbonates1"></th>
-	    	            <th id="kcal1"></th>
+	    	            <th><dropdown-list data-items-list="itemsList" data-placeholder="Item name"></dropdown-list></th>
+	    	            <th><input type="number" id="weight1" ng-model="weight"/></th>
+	    	            <th id="protein1">{{weight*protein1}}</th>
+	    	            <th id="fatt1">{{weight*fat1}}</th>
+	    	            <th id="carbonates1">{{weight*carbo1}}</th>
+	    	            <th id="kcal1">{{weight*kcal1}}</th>
 	    	            <input type="hidden" id="hiddenP1">
 	    	            <input type="hidden" id="hiddenF1">
 	    	            <input type="hidden" id="hiddenC1">
