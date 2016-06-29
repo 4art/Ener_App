@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" ng-app="app1">
 <head>
   <title>Energize</title>
   <meta charset="utf-8">
@@ -9,13 +9,15 @@ a{
 	cursor: pointer;
 }
   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/ang.js"></script>
  <script type="text/javascript" src="js/logic.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container" ng-controller="Ctrl">
 	  	<h2>Energize</h2>
 	  	<table class="table table-hover">
 	    	<thead>
@@ -29,17 +31,20 @@ a{
 	    	        <th>Kilokalorien (kcal)▼ </th>
 	    	  </tr>
 	    	</thead>
-		<form method="post" name="test" id="form">
+		<form method="post" name="prodForm" id="form">
 	    	<tbody>
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
-	    	            <th><input type='text' id="product1"></th>
+	    	            <th><input type='text' id="product1" ></th>
 	    	            <th><input type="number" id="weight1"/></th>
 	    	            <th id="protein1"></th>
 	    	            <th id="fatt1"></th>
 	    	            <th id="carbonates1"></th>
 	    	            <th id="kcal1"></th>
-	    	            <input type="hidden" id="hidden1">
+	    	            <input type="hidden" id="hiddenP1">
+	    	            <input type="hidden" id="hiddenF1">
+	    	            <input type="hidden" id="hiddenC1">
+	    	            <input type="hidden" id="hiddenK1">
 	    	        </tr>
 	    	</tbody>
 	    	<tfoot>
