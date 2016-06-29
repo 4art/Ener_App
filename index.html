@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" ng-app="app1">
+<html lang="de" ng-app="app">
 <head>
   <title>Energize</title>
   <meta charset="utf-8">
@@ -35,12 +35,12 @@ a{
 	    	<tbody>
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
-	    	            <th><dropdown-list data-items-list="itemsList" data-placeholder="Item name"></dropdown-list></th>
+	    	            <th><input type="text" id="prodct1"/></th>
 	    	            <th><input type="number" id="weight1" ng-model="weight"/></th>
-	    	            <th id="protein1">{{weight*protein1}}</th>
-	    	            <th id="fatt1">{{weight*fat1}}</th>
-	    	            <th id="carbonates1">{{weight*carbo1}}</th>
-	    	            <th id="kcal1">{{weight*kcal1}}</th>
+	    	            <th id="protein1">{{weight*0.3}}</th>
+	    	            <th id="fatt1">{{weight*0.1}}</th>
+	    	            <th id="carbonates1">{{weight*0.01}}</th>
+	    	            <th id="kcal1">{{weight*33}}</th>
 	    	            <input type="hidden" id="hiddenP1">
 	    	            <input type="hidden" id="hiddenF1">
 	    	            <input type="hidden" id="hiddenC1">

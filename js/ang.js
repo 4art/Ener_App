@@ -17,7 +17,7 @@ app.controller('mainCtrl', function($scope){
     {'name': 'Nuadha Lycus', 'amount': 19}
   ];
 });
-app.directive('dropdownList',function( $timeout ){
+/*app.directive('dropdownList',function( $timeout ){
   return {
     restrict: 'E',
     scope: {
@@ -40,7 +40,7 @@ app.directive('dropdownList',function( $timeout ){
              * 'blur' реагирует быстрее чем ng-click,
              * поэтому без $timeout chooseItem не успеет поймать item до того, как лист исчезнет
              */
-          $timeout(function(){ $listContainer.removeClass('show') }, 200);
+          /*$timeout(function(){ $listContainer.removeClass('show') }, 200);
         });
       
       	scope.chooseItem = function( item ){
@@ -49,4 +49,4 @@ app.directive('dropdownList',function( $timeout ){
 			 }
     }
   }
-});
+});*/
