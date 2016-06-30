@@ -32,15 +32,15 @@ a{
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
 	    	            <th><input type='text' id="product1"></th>
-	    	            <th><input type="number" ng-value="0" id="weight1" ng-model="weight"/></th>
-	    	            <th id="protein1">{{weight*protein}}</th>
-	    	            <th id="fatt1">{{weight*fat}}</th>
-	    	            <th id="carbonates1">{{weight*carbo}}</th>
-	    	            <th id="kcal1">{{weight*kcal}}</th>
-	    	            <input type="hidden" ng-value="0" ng-model="protein" id="hiddenP1">
-	    	            <input type="hidden" ng-model="fat" id="hiddenF1">
-	    	            <input type="hidden" ng-model="carbo" id="hiddenC1">
-	    	            <input type="hidden" ng-model="kcal" id="hiddenK1">
+	    	            <th><input type="number" id="weight1" ng-model="weight1"/></th>
+	    	            <th id="protein1" ng-bind="weight1">{{weight1*protein1}}</th>
+	    	            <th id="fat1">{{weight*fat1}}</th>
+	    	            <th id="carbonates1">{{weight*carbo1}}</th>
+	    	            <th id="kcal1">{{weight*kcal1}}</th>
+	    	            <input type="hidden" ng-model="protein1" id="hiddenP1">
+	    	            <input type="hidden" ng-model="fat1" id="hiddenF1">
+	    	            <input type="hidden" ng-model="carbo1" id="hiddenC1">
+	    	            <input type="hidden" ng-model="kcal1" id="hiddenK1">
 	    	        </tr>
 	    	</tbody>
 	    	<tfoot>

@@ -12,6 +12,8 @@ jquery:
 var i=2;
 $(document).ready(function() {
 		autoCom();
+		$('#hiddenP1').val(0);
+		$('#weight1').val(0);
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
@@ -21,15 +23,15 @@ $(document).ready(function() {
 		cop.attr('id', 'tCop'+i);
 		cop.find('#number1').attr('id', 'number'+i).text(i+".");
 		cop.find('#product1').attr('id', 'product'+i).val('');
-		cop.find('#weight1').attr('id', 'weight'+i).val('');
+		cop.find('#weight1').attr('ng-model', 'weight'+i).attr('id', 'weight'+i).val('');
 		cop.find('#protein1').attr('id', 'protein'+i);
-		cop.find('#fatt1').attr('id', 'fatt' +i);
+		cop.find('#fat1').attr('id', 'fat' +i);
 		cop.find('#carbonates1').attr('id', 'carbonates'+i);
 		cop.find('#kcal1').attr('id', 'kcal'+i);
-		cop.find('#hiddenP1').attr('id', 'hiddenP'+i);
-		cop.find('#hiddenF1').attr('id', 'hiddenF'+i);
-		cop.find('#hiddenC1').attr('id', 'hiddenC'+i);
-		cop.find('#hiddenK1').attr('id', 'hiddenK'+i);
+		cop.find('#hiddenP1').attr('ng-model', 'protein'+i).attr('id', 'hiddenP'+i);
+		cop.find('#hiddenF1').attr('ng-model', 'fat'+i).attr('id', 'hiddenF'+i);
+		cop.find('#hiddenC1').attr('ng-model', 'carbo'+i).attr('id', 'hiddenC'+i);
+		cop.find('#hiddenK1').attr('ng-model', 'kcal'+i).attr('id', 'hiddenK'+i);
 		cop.append('<th><a></a></th>').find('a').attr('id', i).text('Löschen');
 		cop.appendTo('tbody');
 		i++;
@@ -81,6 +83,7 @@ var products = [
                   $('#hiddenF'+(i-1)).val(ui.item.fat);
                   $('#hiddenC'+(i-1)).val(ui.item.carbo);
                   $('#hiddenK'+(i-1)).val(ui.item.kcal);
+                 
                }
             });
 
