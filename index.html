@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <title>Energize</title>
   <meta charset="utf-8">
@@ -9,13 +9,11 @@ a{
 	cursor: pointer;
 }
   </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- <script type="text/javascript" src="js/logic.js"></script>
+  <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container" ng-app="">
 	  	<h2>Energize</h2>
 	  	<table class="table table-hover">
 	    	<thead>
@@ -29,17 +27,20 @@ a{
 	    	        <th>Kilokalorien (kcal)▼ </th>
 	    	  </tr>
 	    	</thead>
-		<form method="post" name="test" id="form">
+		<form method="post" name="prodForm" id="form">
 	    	<tbody>
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
 	    	            <th><input type='text' id="product1"></th>
-	    	            <th><input type="number" id="weight1"/></th>
+	    	            <th><input type="number" id="weight1" ng-model="weight1"/></th>
 	    	            <th id="protein1"></th>
-	    	            <th id="fatt1"></th>
+	    	            <th id="fat1"></th>
 	    	            <th id="carbonates1"></th>
 	    	            <th id="kcal1"></th>
-	    	            <input type="hidden" id="hidden1">
+	    	            <input type="hidden" ng-model="protein1" id="hiddenP1">
+	    	            <input type="hidden" ng-model="fat1" id="hiddenF1">
+	    	            <input type="hidden" ng-model="carbo1" id="hiddenC1">
+	    	            <input type="hidden" ng-model="kcal1" id="hiddenK1">
 	    	        </tr>
 	    	</tbody>
 	    	<tfoot>
@@ -47,15 +48,15 @@ a{
 	    	    <tr>
 	    	        <th></th>
 	    	        <th></th>
-	    	        <th></th>
-	    	        <th></th>
-	    	        <th></th>
-	    	        <th></th>
-	    	        <th></th>
+	    	        <th id="wei_gen"></th>
+	    	        <th id="prot_gen"></th>
+	    	        <th id="fat_gen"></th>
+	    	        <th id="carbo_gen"></th>
+	    	        <th id="kcal_gen"></th>
 	    	    </tr>
 	    	</tfoot>
 	  	</table>
-		<button type="button" class="btn btn-primary" id="button">Berechnen</button>
+		<button type="button" class="btn btn-primary" id="button">Hinzufügen</button>
 	</form>
   <br/><br/>
   <p>Das ist eine <b>Beispiel</b>applikation, mit der man die Kilokalorien und einige andere Werte für ein bestimmtes Gewicht von einem Lebensmittel berechnen kann. In der Datenbank sind aktuell nur 17 Lebensmittel (1.Hühnchen 2.Pute 3.Gans 4.Ente 5.Eier 6.Omelett 7.Lamm 8.Rind 9.Schwein 10.Schinken 11.Würstchen 12.Kartoffeln 13.Paprika 14.Granatapfel 15.Ananas 16.Orange 17.Äpfel). Die Applikation generiert die Werte für andere Lebensmittel zufällig. Die Logik hinter dem Zufallsgenerator ist: Eiweiße, Fette und Kohlenhydrate sollen nicht mehr als die Hälfte des Gewichtes und die Kilokalorien sollen nicht mehr als 1/10 des Gewichtes sein.)</p>
@@ -91,5 +92,10 @@ a{
   	
 </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/logic.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>-->
 </body>
 </html>
