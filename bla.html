@@ -9,11 +9,20 @@
       <!-- Javascript -->
       <script>
          $(function() {
+            var products = [
+    {'label': 'hähnchen', 'protein': 0.207, 'fat': 0.085, 'carbo': 0.004, 'kcal':1.99},
+    {'label': 'putenfleisch', 'protein': 0.213, 'fat': 0.121, 'carbo': 0.008, 'kcal':1.98},
+    {'label': 'gänsefleisch', 'protein': 0.292, 'fat': 0.222, 'carbo': 0.00, 'kcal':3.19},
+    
+  ];
             $( "#autocomplete-4" ).autocomplete({
-               source: [
-                  { label: "India", value: "IND" },
-                  { label: "Australia", value: "AUS" }
-               ]
+               source: products,
+               select: function(event, ui){
+                  $('#hiddenP1').val(ui.item.protein);
+                  $('#hiddenF1').val(ui.item.protein);
+                  $('#hiddenC1').val(ui.item.protein);
+                  $('#hiddenK1').val(ui.item.protein);
+               }
             });
          });
       </script>
@@ -23,6 +32,7 @@
       <div class="ui-widget">
          <p>Type I OR A</p>
          <input id="autocomplete-4">
+         <input type="text" id="add" name="">
       </div>
    </body>
 </html>

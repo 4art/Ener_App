@@ -11,6 +11,7 @@ jquery:
 
 var i=2;
 $(document).ready(function() {
+		autoCom();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
@@ -34,7 +35,8 @@ $(document).ready(function() {
 		i++;
 		delEl();
 		modalAdd();
-		//autoCom();
+		autoCom();
+		
 	});
 });
 function delEl(){
@@ -50,8 +52,8 @@ function modalAdd(){
 	        return false;
 	});
 }
-/*function autoCom(){
-	var data;
+function autoCom(){
+	/*var data;
 	$.ajax({
 	url: 'content.php',
 	type: 'POST',
@@ -65,4 +67,21 @@ function modalAdd(){
                         source:'content.php',
                         minLength:1
                     });*/
-//}
+
+var products = [
+    {'label': 'hähnchen', 'protein': 0.207, 'fat': 0.085, 'carbo': 0.004, 'kcal':1.99},
+    {'label': 'putenfleisch', 'protein': 0.213, 'fat': 0.121, 'carbo': 0.008, 'kcal':1.98},
+    {'label': 'gänsefleisch', 'protein': 0.292, 'fat': 0.222, 'carbo': 0.00, 'kcal':3.19},
+    
+  ];
+            $( "#product"+(i-1) ).autocomplete({
+               source: products,
+               select: function(event, ui){
+                  $('#hiddenP'+(i-1)).val(ui.item.protein);
+                  $('#hiddenF'+(i-1)).val(ui.item.fat);
+                  $('#hiddenC'+(i-1)).val(ui.item.carbo);
+                  $('#hiddenK'+(i-1)).val(ui.item.kcal);
+               }
+            });
+
+}
