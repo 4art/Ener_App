@@ -33,14 +33,14 @@ a{
 	    	            <th id="number1">1.</th>
 	    	            <th><input type='text' id="product1"></th>
 	    	            <th><input type="number" id="weight1" ng-model="weight"/></th>
-	    	            <th id="protein1">{{weight*0.3}}</th>
-	    	            <th id="fatt1">{{weight*0.1}}</th>
-	    	            <th id="carbonates1">{{weight*0.01}}</th>
-	    	            <th id="kcal1">{{weight*33}}</th>
-	    	            <input type="hidden" id="hiddenP1">
-	    	            <input type="hidden" id="hiddenF1">
-	    	            <input type="hidden" id="hiddenC1">
-	    	            <input type="hidden" id="hiddenK1">
+	    	            <th id="protein1">{{weight*protein}}</th>
+	    	            <th id="fatt1">{{weight*fat}}</th>
+	    	            <th id="carbonates1">{{weight*carbo}}</th>
+	    	            <th id="kcal1">{{weight*kcal}}</th>
+	    	            <input type="hidden" ng-model="protein" id="hiddenP1">
+	    	            <input type="hidden" ng-model="fat" id="hiddenF1">
+	    	            <input type="hidden" ng-model="carbo" id="hiddenC1">
+	    	            <input type="hidden" ng-model="kcal" id="hiddenK1">
 	    	        </tr>
 	    	</tbody>
 	    	<tfoot>
@@ -97,6 +97,6 @@ a{
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/ang.js"></script>
  <script type="text/javascript" src="js/logic.js"></script>
-  <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </body>
 </html>

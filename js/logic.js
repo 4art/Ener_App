@@ -9,7 +9,7 @@ jquery:
 */
 
 
-var i=2;
+/*var i=2;
 $(document).ready(function() {
 		autoCom();
 	$('#button').click(function() {
@@ -36,7 +36,7 @@ $(document).ready(function() {
 		delEl();
 		modalAdd();
 		autoCom();
-		
+
 	});
 });
 function delEl(){
@@ -68,7 +68,7 @@ function autoCom(){
                         minLength:1
                     });*/
 
-var products = [
+/*var products = [
     {'label': 'hähnchen', 'protein': 0.207, 'fat': 0.085, 'carbo': 0.004, 'kcal':1.99},
     {'label': 'putenfleisch', 'protein': 0.213, 'fat': 0.121, 'carbo': 0.008, 'kcal':1.98},
     {'label': 'gänsefleisch', 'protein': 0.292, 'fat': 0.222, 'carbo': 0.00, 'kcal':3.19},
@@ -85,3 +85,4 @@ var products = [
             });
 
 }
+*/
