@@ -95,13 +95,14 @@ function prodCount(){
 			$('#carbonates'+(i-1)).text($(this).val()*$('#hiddenC'+(i-1)).val());
 			$('#kcal'+(i-1)).text($(this).val()*$('#hiddenK'+(i-1)).val());
 			if ($('#weiGen').text()!="" || $('#protGen').text()!="" || $('#fatGen').text()!=""|| $('#carboGen').text()!=""|| $('#kcalGen').text()!="") {
-			$('#weiGen').text(parseInt($('#weiGen').text())+parseInt($(this).val()));
-			
+				$('#weiGen').text(parseInt($('#weiGen').text())+parseInt($(this).val()));
+				$('#protGen').text(parseFloat($('#protein'+(i-1)).text())+parseFloat($('#protGen').text()));
+				
 
 			}
 			else{
-			$('#weiGen').text($('#weiGen').text()+parseInt($(this).val()));
-
+				$('#weiGen').text($('#weiGen').text()+parseInt($(this).val()));
+				$('#protGen').text($('#protein'+(i-1)).text());
 			}
 		});
 }
