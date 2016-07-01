@@ -1,11 +1,6 @@
 /*need to add!!!! 
-angular:
-	disactive button
-	red border with error text
-	dinamic add value
 jquery:
-	json with valid fron db
-	toFixed(2);
+	json fronm db
 */
 
 var i=2;
@@ -35,15 +30,15 @@ $(document).ready(function() {
 		cop.attr('id', 'tCop'+i);
 		cop.find('#number1').attr('id', 'number'+i).text(i+".");
 		cop.find('#product1').attr('id', 'product'+i).removeAttr('readonly').removeClass('success').val('');
-		cop.find('#weight1').attr('ng-model', 'weight'+i).removeAttr('readonly').removeClass('success').attr('id', 'weight'+i).val('');
+		cop.find('#weight1')./*attr('ng-model', 'weight'+i).*/removeAttr('readonly').removeClass('success').attr('id', 'weight'+i).val('');
 		cop.find('#protein1').attr('id', 'protein'+i).empty();
 		cop.find('#fat1').attr('id', 'fat' +i).empty();
 		cop.find('#carbonates1').attr('id', 'carbonates'+i).empty();
 		cop.find('#kcal1').attr('id', 'kcal'+i).empty();
-		cop.find('#hiddenP1').attr('ng-model', 'protein'+i).attr('id', 'hiddenP'+i);
-		cop.find('#hiddenF1').attr('ng-model', 'fat'+i).attr('id', 'hiddenF'+i);
-		cop.find('#hiddenC1').attr('ng-model', 'carbo'+i).attr('id', 'hiddenC'+i);
-		cop.find('#hiddenK1').attr('ng-model', 'kcal'+i).attr('id', 'hiddenK'+i);
+		cop.find('#hiddenP1')./*attr('ng-model', 'protein'+i).*/attr('id', 'hiddenP'+i);
+		cop.find('#hiddenF1')./*attr('ng-model', 'fat'+i).*/attr('id', 'hiddenF'+i);
+		cop.find('#hiddenC1')./*attr('ng-model', 'carbo'+i).*/attr('id', 'hiddenC'+i);
+		cop.find('#hiddenK1')./*attr('ng-model', 'kcal'+i).*/attr('id', 'hiddenK'+i);
 		//cop.append('<th><a></a></th>').find('a').attr('id', i).text('Löschen');
 		cop.appendTo('tbody');
 		/*$('#errorText').removeClass('errorHid').addClass('errorVis');
