@@ -5,7 +5,7 @@ angular:
 	dinamic add value
 jquery:
 	json with valid fron db
-	ui to name with auto insert to hidden
+	toFixed(2);
 */
 
 var i=2;
@@ -90,9 +90,18 @@ function autoCom(){
 }
 function prodCount(){
 	$('#weight'+(i-1)).change(function() {
-			$('#protein'+(i-1)).html($(this).val()*$('#hiddenP'+(i-1)).val());
-			$('#fat'+(i-1)).html($(this).val()*$('#hiddenF'+(i-1)).val());
-			$('#carbonates'+(i-1)).html($(this).val()*$('#hiddenC'+(i-1)).val());
-			$('#kcal'+(i-1)).html($(this).val()*$('#hiddenK'+(i-1)).val());
+			$('#protein'+(i-1)).text($(this).val()*$('#hiddenP'+(i-1)).val());
+			$('#fat'+(i-1)).text($(this).val()*$('#hiddenF'+(i-1)).val());
+			$('#carbonates'+(i-1)).text($(this).val()*$('#hiddenC'+(i-1)).val());
+			$('#kcal'+(i-1)).text($(this).val()*$('#hiddenK'+(i-1)).val());
+			if ($('#weiGen').text()!="" || $('#protGen').text()!="" || $('#fatGen').text()!=""|| $('#carboGen').text()!=""|| $('#kcalGen').text()!="") {
+			$('#weiGen').text(parseInt($('#weiGen').text())+parseInt($(this).val()));
+			
+
+			}
+			else{
+			$('#weiGen').text($('#weiGen').text()+parseInt($(this).val()));
+
+			}
 		});
 }
