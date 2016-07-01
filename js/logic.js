@@ -97,12 +97,18 @@ function prodCount(){
 			if ($('#weiGen').text()!="" || $('#protGen').text()!="" || $('#fatGen').text()!=""|| $('#carboGen').text()!=""|| $('#kcalGen').text()!="") {
 				$('#weiGen').text(parseInt($('#weiGen').text())+parseInt($(this).val()));
 				$('#protGen').text(parseFloat($('#protein'+(i-1)).text())+parseFloat($('#protGen').text()));
+				$('#fatGen').text(parseFloat($('#fat'+(i-1)).text())+parseFloat($('#fatGen').text()));
+				$('#carboGen').text(parseFloat($('#carbonates'+(i-1)).text())+parseFloat($('#carboGen').text()));
+				$('#kcalGen').text(parseFloat($('#kcal'+(i-1)).text())+parseFloat($('#kcalGen').text()));
 				
 
 			}
 			else{
 				$('#weiGen').text($('#weiGen').text()+parseInt($(this).val()));
 				$('#protGen').text($('#protein'+(i-1)).text());
+				$('#fatGen').text($('#fat'+(i-1)).text());
+				$('#carboGen').text($('#carbonates'+(i-1)).text());
+				$('#kcalGen').text($('#kcal'+(i-1)).text());
 			}
 		});
 }
