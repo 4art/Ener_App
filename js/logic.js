@@ -26,8 +26,8 @@ $(document).ready(function() {
 		}
 		cop.attr('id', 'tCop'+i);
 		cop.find('#number1').attr('id', 'number'+i).text(i+".");
-		cop.find('#product1').attr('id', 'product'+i).val('');
-		cop.find('#weight1').attr('ng-model', 'weight'+i).attr('id', 'weight'+i).val('');
+		cop.find('#product1').attr('id', 'product'+i).removeAttr('readonly').removeClass('success').val('');
+		cop.find('#weight1').attr('ng-model', 'weight'+i).removeAttr('readonly').removeClass('success').attr('id', 'weight'+i).val('');
 		cop.find('#protein1').attr('id', 'protein'+i).empty();
 		cop.find('#fat1').attr('id', 'fat' +i).empty();
 		cop.find('#carbonates1').attr('id', 'carbonates'+i).empty();
@@ -100,29 +100,38 @@ function autoCom(){
 }
 function prodCount(){
 	$('#weight'+(i-1)).change(function() {
-			$('#protein'+(i-1)).text(($(this).val()*$('#hiddenP'+(i-1)).val()).toFixed(2));
-			$('#fat'+(i-1)).text(($(this).val()*$('#hiddenF'+(i-1)).val()).toFixed(2));
-			$('#carbonates'+(i-1)).text(($(this).val()*$('#hiddenC'+(i-1)).val()).toFixed(2));
-			$('#kcal'+(i-1)).text(($(this).val()*$('#hiddenK'+(i-1)).val()).toFixed(2));
-			if ($('#weiGen').text()!="" || $('#protGen').text()!="" || $('#fatGen').text()!=""|| $('#carboGen').text()!=""|| $('#kcalGen').text()!="") {
-				$('#weiGen').text((parseInt($('#weiGen').text())+parseInt($(this).val())).toFixed(2));
-				$('#protGen').text((parseFloat($('#protein'+(i-1)).text())+parseFloat($('#protGen').text())).toFixed(2));
-				$('#fatGen').text((parseFloat($('#fat'+(i-1)).text())+parseFloat($('#fatGen').text())).toFixed(2));
-				$('#carboGen').text((parseFloat($('#carbonates'+(i-1)).text())+parseFloat($('#carboGen').text())).toFixed(2));
-				$('#kcalGen').text((parseFloat($('#kcal'+(i-1)).text())+parseFloat($('#kcalGen').text())).toFixed(2));
+			if ($('#product'+(i-1)).val()!="") {
+				$('#product'+(i-1)).removeClass('error');	
+				$('#protein'+(i-1)).text(($(this).val()*$('#hiddenP'+(i-1)).val()).toFixed(2));
+				$('#fat'+(i-1)).text(($(this).val()*$('#hiddenF'+(i-1)).val()).toFixed(2));
+				$('#carbonates'+(i-1)).text(($(this).val()*$('#hiddenC'+(i-1)).val()).toFixed(2));
+				$('#kcal'+(i-1)).text(($(this).val()*$('#hiddenK'+(i-1)).val()).toFixed(2));
+				if ($('#weiGen').text()!="" || $('#protGen').text()!="" || $('#fatGen').text()!=""|| $('#carboGen').text()!=""|| $('#kcalGen').text()!="") {
+					$('#weiGen').text((parseInt($('#weiGen').text())+parseInt($(this).val())).toFixed(2));
+					$('#protGen').text((parseFloat($('#protein'+(i-1)).text())+parseFloat($('#protGen').text())).toFixed(2));
+					$('#fatGen').text((parseFloat($('#fat'+(i-1)).text())+parseFloat($('#fatGen').text())).toFixed(2));
+					$('#carboGen').text((parseFloat($('#carbonates'+(i-1)).text())+parseFloat($('#carboGen').text())).toFixed(2));
+					$('#kcalGen').text((parseFloat($('#kcal'+(i-1)).text())+parseFloat($('#kcalGen').text())).toFixed(2));
+					if ($('#product'+(i-1)).val()!="") {	
+						$(this).attr('readonly', '').addClass('success');
+						$('#product'+(i-1)).attr('readonly', '').addClass('success');
+					}
+				}
+				else{
+					$('#weiGen').text($('#weiGen').text()+parseInt($(this).val()));
+					$('#protGen').text($('#protein'+(i-1)).text());
+					$('#fatGen').text($('#fat'+(i-1)).text());
+					$('#carboGen').text($('#carbonates'+(i-1)).text());
+					$('#kcalGen').text($('#kcal'+(i-1)).text());
 					$(this).attr('readonly', '').addClass('success');
-					$('#product'+(i-1)).attr('readonly', '').addClass('success');
-
+						if ($('#product1'+(i-1)).val()!="") {	
+						$(this).attr('readonly', '').addClass('success');
+						$('#product'+(i-1)).attr('readonly', '').addClass('success');
+					}
+				}
 			}
 			else{
-				$('#weiGen').text($('#weiGen').text()+parseInt($(this).val()));
-				$('#protGen').text($('#protein'+(i-1)).text());
-				$('#fatGen').text($('#fat'+(i-1)).text());
-				$('#carboGen').text($('#carbonates'+(i-1)).text());
-				$('#kcalGen').text($('#kcal'+(i-1)).text());
-				$(this).attr('readonly', '').addClass('success');
-					$(this).attr('readonly', '').addClass('success');
-					$('#product'+(i-1)).attr('readonly', '').addClass('success');
+				$('#product'+(i-1)).addClass('error');
 			}
 		});
 }
