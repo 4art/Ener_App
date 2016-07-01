@@ -18,10 +18,18 @@ var products = [
 $(document).ready(function() {
 		autoCom();
 		prodCount();
+		prodAdd();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
-			alert('error');
+			$('#product'+(i-1)).addClass('error');
+			$('#weight'+(i-1)).addClass('error');
+			$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
+			return;
+		}
+		else if ($('#tCop'+(i-1)).find('#weight'+(i-1)).val()==""||$('#tCop').find('#weight'+(i-1)).val()=="") {
+			$('#weight'+(i-1)).addClass('error');
+			$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
 			return;
 		}
 		cop.attr('id', 'tCop'+i);
@@ -38,10 +46,14 @@ $(document).ready(function() {
 		cop.find('#hiddenK1').attr('ng-model', 'kcal'+i).attr('id', 'hiddenK'+i);
 		//cop.append('<th><a></a></th>').find('a').attr('id', i).text('Löschen');
 		cop.appendTo('tbody');
+		/*$('#errorText').removeClass('errorHid').addClass('errorVis');
+		$('#product'+i).addClass('error');
+		$('#weight'+i).addClass('error');*/
 		i++;
 		//delEl();
 		prodCount();
 		modalAdd();
+		prodAdd();
 		autoCom();
 
 	});
@@ -101,6 +113,7 @@ function autoCom(){
 function prodCount(){
 	$('#weight'+(i-1)).change(function() {
 			if ($('#product'+(i-1)).val()!="") {
+				$(this).removeClass('error');
 				$('#product'+(i-1)).removeClass('error');	
 				$('#protein'+(i-1)).text(($(this).val()*$('#hiddenP'+(i-1)).val()).toFixed(2));
 				$('#fat'+(i-1)).text(($(this).val()*$('#hiddenF'+(i-1)).val()).toFixed(2));
@@ -115,6 +128,7 @@ function prodCount(){
 					if ($('#product'+(i-1)).val()!="") {	
 						$(this).attr('readonly', '').addClass('success');
 						$('#product'+(i-1)).attr('readonly', '').addClass('success');
+						$('#errorText').removeClass('errorVis').addClass('errorHid');//valid off
 					}
 				}
 				else{
@@ -127,11 +141,21 @@ function prodCount(){
 						if ($('#product1'+(i-1)).val()!="") {	
 						$(this).attr('readonly', '').addClass('success');
 						$('#product'+(i-1)).attr('readonly', '').addClass('success');
+						$('#errorText').removeClass('errorVis').addClass('errorHid');//valid off
 					}
 				}
 			}
 			else{
 				$('#product'+(i-1)).addClass('error');
+				$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
+
 			}
 		});
+}
+function prodAdd(){
+	$('#product'+(i-1)).blur(function() {
+		$(this).removeClass('error');
+		$('#weight'+(i-1)).addClass('error').val('');
+		$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
+	});
 }

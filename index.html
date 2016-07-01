@@ -14,6 +14,13 @@ a{
 .error{
 	background-color: #ffe6e6;
 }
+.errorVis{
+	color: #ff8080;
+	display: block;	
+}
+.errorHid{
+	display: none;
+}
 
   </style>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -64,6 +71,8 @@ a{
 	    	</tfoot>
 	  	</table>
 		<button type="button" class="btn btn-primary" id="button">Hinzufügen</button>
+		<br>
+		<p id="errorText" class="errorHid">*Fühllen Sie die passende Felder aus.</p>
 	</form>
   <br/><br/>
   <p>Das ist eine <b>Beispiel</b>applikation, mit der man die Kilokalorien und einige andere Werte für ein bestimmtes Gewicht von einem Lebensmittel berechnen kann. In der Datenbank sind aktuell nur 17 Lebensmittel (1.Hühnchen 2.Pute 3.Gans 4.Ente 5.Eier 6.Omelett 7.Lamm 8.Rind 9.Schwein 10.Schinken 11.Würstchen 12.Kartoffeln 13.Paprika 14.Granatapfel 15.Ananas 16.Orange 17.Äpfel). Die Applikation generiert die Werte für andere Lebensmittel zufällig. Die Logik hinter dem Zufallsgenerator ist: Eiweiße, Fette und Kohlenhydrate sollen nicht mehr als die Hälfte des Gewichtes und die Kilokalorien sollen nicht mehr als 1/10 des Gewichtes sein.)</p>
