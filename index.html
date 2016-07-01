@@ -27,7 +27,7 @@ a{
   <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
-<div class="container" ng-app="">
+<div class="container">
 	  	<h2>Energize</h2>
 	  	<table class="table table-hover">
 	    	<thead>
@@ -46,15 +46,15 @@ a{
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
 	    	            <th><input type='text' id="product1"></th>
-	    	            <th><input type="number" id="weight1" ng-model="weight1"/></th>
+	    	            <th><input type="number" id="weight1" /></th>
 	    	            <th id="protein1"></th>
 	    	            <th id="fat1"></th>
 	    	            <th id="carbonates1"></th>
 	    	            <th id="kcal1"></th>
-	    	            <input type="hidden" ng-model="protein1" id="hiddenP1">
-	    	            <input type="hidden" ng-model="fat1" id="hiddenF1">
-	    	            <input type="hidden" ng-model="carbo1" id="hiddenC1">
-	    	            <input type="hidden" ng-model="kcal1" id="hiddenK1">
+	    	            <input type="hidden" id="hiddenP1">
+	    	            <input type="hidden" id="hiddenF1">
+	    	            <input type="hidden" id="hiddenC1">
+	    	            <input type="hidden" id="hiddenK1">
 	    	        </tr>
 	    	</tbody>
 	    	<tfoot>
@@ -112,6 +112,5 @@ a{
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/logic.js"></script>
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>-->
 </body>
 </html>
