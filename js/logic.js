@@ -1,6 +1,12 @@
 /*need to add!!!! 
+<<<<<<< HEAD
 jquery:
 	json fronm db
+=======
+
+jquery and php:
+	need to make logik to add a new product
+>>>>>>> testing
 */
 
 var i=2;
@@ -8,6 +14,7 @@ $(document).ready(function() {
 		autoCom();
 		prodCount();
 		prodAdd();
+		modalAdd();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
@@ -41,7 +48,6 @@ $(document).ready(function() {
 		i++;
 		//delEl();
 		prodCount();
-		modalAdd();
 		prodAdd();
 		autoCom();
 

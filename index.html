@@ -86,17 +86,21 @@ a{
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Neue Datei<a id="modalAdd" data-dismiss="modal"> hinzufügen.</a></h4>
+          <h4 class="modal-title">Neue Datei<!--<a id="modalAdd" data-dismiss="modal"> hinzufügen.</a>--></h4>
         </div>
         <div class="modal-body">
-          <tr>
-  		<th><input type="text" id="newProdName" placeholder="Name vom Lebensmittel"></th>
-  		<th><input type="text" id="newEiweis" placeholder="Eiweis pro 100 gr."></th>
-  		<th><input type="text" id="newFat" placeholder="Fette pro 100 gr."></th>
-  		<th><input type="text" id="newCarbo" placeholder="Kohlenhydraten pro 100 gr."></th>
-  		<th><input type="text" id="newKcal" placeholder="Kcal pro 100 gr."></th>
-  	</tr>
-  <button type="button" class="btn btn-link" id="newDateSave">Neues Lebensmittel hinzufügen</button> 
+        	<form class="form-horizontal">
+        		
+	        	<tr> 
+		  			<th><div class="col-sm-4"><input type="text" class="form-control" id="newProdName" placeholder="Name vom Lebensmittel"></div></th>
+		  			<th><div class="col-sm-4"><input type="text" class="form-control" id="newEiweis" placeholder="Eiweis pro 100 gr."></div></th>
+		  			<th><div class="col-sm-4"><input type="text" class="form-control" id="newFat" placeholder="Fette pro 100 gr."></div></th>
+		  			<th><div class="col-sm-4"><input type="text" class="form-control" id="newCarbo" placeholder="Kohlenhydraten pro 100 gr."></div></th>
+		  			<th><div class="col-sm-4"><input type="text" class="form-control" id="newKcal" placeholder="Kcal pro 100 gr."></div></th>
+		  			<th><div class="col-sm-4"></div></th>
+	  			</tr>
+	  			<button type="button" style="margin-left:15px; margin-top:15px;" class="btn btn-primary" id="newDateSave">Neues Lebensmittel hinzufügen</button> 
+        	</form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
