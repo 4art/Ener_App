@@ -39,9 +39,9 @@
 		public function convert($array)
 		{
 			array_walk_recursive($array, function(&$item, $key){
-        	if(!mb_detect_encoding($item, 'utf-8', true)){
-                $item = utf8_encode($item);
-        	}
+	        	if(!mb_detect_encoding($item, 'utf-8', true)){
+	                $item = utf8_encode($item);
+	        	}
 		    });
 		 
 		    return $array;
@@ -52,9 +52,11 @@
 		}
 
 	}
-	$obj=new DB;
+	/*$obj=new DB;
 	$obj->connect();
-	$arr=$obj->getArray("SELECT * FROM products ");
-	print_r($arr);
-	$obj->disconnect();
+	$arr=$obj->getArray("SELECT * FROM products WHERE label LIKE '%".$_GET['term']."%'");
+	//print_r($arr);
+	echo(json_encode($arr));
+	$obj->disconnect();*/
+ 
  ?>

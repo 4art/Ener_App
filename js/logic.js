@@ -4,12 +4,6 @@ jquery:
 */
 
 var i=2;
-var products = [
-    {'label': 'hähnchen', 'protein': 0.207, 'fat': 0.085, 'carbo': 0.004, 'kcal':1.99},
-    {'label': 'putenfleisch', 'protein': 0.213, 'fat': 0.121, 'carbo': 0.008, 'kcal':1.98},
-    {'label': 'gänsefleisch', 'protein': 0.292, 'fat': 0.222, 'carbo': 0.00, 'kcal':3.19},
-    
-  ];
 $(document).ready(function() {
 		autoCom();
 		prodCount();
@@ -94,7 +88,7 @@ function autoCom(){
 
 
             $( "#product"+(i-1) ).autocomplete({
-               	source: products,
+               	source: 'Ajax.php',
                	select: function(event, ui){
                 	$('#hiddenP'+(i-1)).val(ui.item.protein);
                 	$('#hiddenF'+(i-1)).val(ui.item.fat);
