@@ -1,11 +1,7 @@
 /*need to add!!!! 
-angular:
-	disactive button
-	red border with error text
-	dinamic add value
-jquery:
-	json with valid fron db
-	toFixed(2);
+
+jquery and php:
+	need to make logik to add a new product
 */
 
 var i=2;
