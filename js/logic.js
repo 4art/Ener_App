@@ -19,6 +19,7 @@ $(document).ready(function() {
 		autoCom();
 		prodCount();
 		prodAdd();
+		modalAdd();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
@@ -52,7 +53,6 @@ $(document).ready(function() {
 		i++;
 		//delEl();
 		prodCount();
-		modalAdd();
 		prodAdd();
 		autoCom();
 
