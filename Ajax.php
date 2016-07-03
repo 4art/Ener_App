@@ -13,7 +13,22 @@
 	elseif ($_REQUEST['action']==='set') {
 		$rest_json = file_get_contents("php://input");
 		$rest_vars = json_decode($rest_json, true);
-		echo($rest_vars['items'][0]['label']);
+		//echo($rest_vars['items'][0]['label']);
+		$label=strtolower($rest_vars['items'][0]['label']);
+		$label=trim($label, "\x00..\x1F");
+		$protein=$rest_vars['items'][0]['protein']/100;
+		$fat=$rest_vars['items'][0]['fat']/100;
+		$carbo=$rest_vars['items'][0]['carbonates']/100;
+		$kcal=$rest_vars['items'][0]['kcal']/100;
+		//echo "label:",$label,", protein:",$protein,", fat: ",$fat,", carbo:",$carbo,", kcal:",$kcal;
+		$setDB=new DB();
+		$setDB->connect();
+		$sql="INSERT INTO `products` (`label`, `protein`, `fat`, `carbo`, `kcal`) VALUES ('".$label."', '".$protein."', '".$fat."', '".$carbo."', '".$kcal."')";
+		$status=$setDB->set($sql);
+		$setDB->disconnect();
+		if($status==false){
+			echo "error";
+		}
 		//print_r($rest_vars);
 	}
 ?>

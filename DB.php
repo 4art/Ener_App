@@ -46,6 +46,15 @@
 		 
 		    return $array;
 		}
+		public function set($value)
+		{
+			if ($this->dbh->query($value)===TRUE) {
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
 		public function disconnect()
 		{
 			$this->dbh=null;

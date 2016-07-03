@@ -228,7 +228,12 @@ function addNew() {//validation
 					//dataType: 'json',
 					//async: false,
 					success: function(msg) {
-				        alert(msg);
+				        //alert(msg);
+				        prodNameNew.val('');
+				        protNew.val('');
+				        fatNew.val('');
+				        carboNew.val('');
+				        kcalNew.val('');
 				    }
 				});
 		}
