@@ -10,15 +10,18 @@ $(document).ready(function() {
 		prodCount();
 		prodAdd();
 		modalAdd();
+		addNew();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
-		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()==""||$('#tCop').find('#product'+(i-1)).val()=="") {
+		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()=="" || 
+			$('#tCop').find('#product'+(i-1)).val()=="") {
 			$('#product'+(i-1)).addClass('error');
 			$('#weight'+(i-1)).addClass('error');
 			$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
 			return;
 		}
-		else if ($('#tCop'+(i-1)).find('#weight'+(i-1)).val()==""||$('#tCop').find('#weight'+(i-1)).val()=="") {
+		else if ($('#tCop'+(i-1)).find('#weight'+(i-1)).val()=="" || 
+			$('#tCop').find('#weight'+(i-1)).val()=="") {
 			$('#weight'+(i-1)).addClass('error');
 			$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
 			return;
@@ -109,7 +112,11 @@ function prodCount(){
 				$('#fat'+(i-1)).text(($(this).val()*$('#hiddenF'+(i-1)).val()).toFixed(2));
 				$('#carbonates'+(i-1)).text(($(this).val()*$('#hiddenC'+(i-1)).val()).toFixed(2));
 				$('#kcal'+(i-1)).text(($(this).val()*$('#hiddenK'+(i-1)).val()).toFixed(2));
-				if ($('#weiGen').text()!="" || $('#protGen').text()!="" || $('#fatGen').text()!=""|| $('#carboGen').text()!=""|| $('#kcalGen').text()!="") {
+				if ($('#weiGen').text()!="" || 
+					$('#protGen').text()!="" || 
+					$('#fatGen').text()!=""|| 
+					$('#carboGen').text()!=""|| 
+					$('#kcalGen').text()!="") {
 					$('#weiGen').text((parseInt($('#weiGen').text())+parseInt($(this).val())).toFixed(2));
 					$('#protGen').text((parseFloat($('#protein'+(i-1)).text())+parseFloat($('#protGen').text())).toFixed(2));
 					$('#fatGen').text((parseFloat($('#fat'+(i-1)).text())+parseFloat($('#fatGen').text())).toFixed(2));
@@ -147,5 +154,75 @@ function prodAdd(){
 		$(this).removeClass('error');
 		$('#weight'+(i-1)).addClass('error').val('');
 		$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
+	});
+}
+function addNew() {
+	$('#newDateSave').click(function() {
+		var prodNameNew = $('#newProdName');
+		var protNew = $('#newEiweis');
+		var fatNew = $('#newFat');
+		var carboNew = $('#newCarbo');
+		var kcalNew = $('#newKcal');
+		//valid
+		if ($.trim(prodNameNew.val())=="" || $.trim(prodNameNew.val()).length<2) {
+			addErr(prodNameNew);
+
+		}
+		else{
+			delErr(prodNameNew);
+		}
+		if (protNew.val()=="" || parseFloat(protNew.val())<0 || parseFloat(protNew.val())>100) {
+			addErr(protNew);
+
+		}
+		else{
+			delErr(protNew);
+		}
+		if (fatNew.val()=="" || parseFloat(fatNew.val())<0 || parseFloat(fatNew.val())>100) {
+			addErr(fatNew);
+
+		}
+		else{
+			delErr(fatNew);
+		}
+		if (carboNew.val()=="" || parseFloat(carboNew.val())<0 || parseFloat(carboNew.val())>100) {
+			addErr(carboNew);
+
+		}
+		else{
+			delErr(carboNew);
+		}
+		if (kcalNew.val()=="" || parseFloat(kcalNew.val())<0 || parseFloat(kcalNew.val())>910) {
+			addErr(kcalNew);
+
+		}
+		else{
+			delErr(kcalNew);
+		}
+		if (parseFloat(protNew.val())+parseFloat(fatNew.val())+parseFloat(carboNew.val())>100) {
+			$('#errorCountText').removeClass('errorHid').addClass('errorVis');
+		}
+		else{
+			$('#errorCountText').removeClass('errorVis').addClass('errorHid');
+		}
+		
+
+			/*var data = [
+			{"label":$('#newProdName').val(), 
+			"protein":$('#newEiweis').val(),
+			"fat":$('#newFat').val(),
+			"carbonates":$('#newCarbo').val(),
+			"kcal":$('#newKcal').val()
+		}
+
+			];*/
+			function addErr(value){
+				value.addClass('error');
+				$('#errorModText').removeClass('errorHid').addClass('errorVis');
+			}
+			function delErr(value){
+				value.removeClass('error');
+				$('#errorModText').removeClass('errorVis').addClass('errorHid');
+			}
 	});
 }
