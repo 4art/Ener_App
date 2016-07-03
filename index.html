@@ -48,15 +48,15 @@ a{
 	    	  		<tr id="tCop">
 	    	            <th id="number1">1.</th>
 	    	            <th><input type='text' id="product1"></th>
-	    	            <th><input type="number" id="weight1" ng-model="weight1"/></th>
+	    	            <th><input type="number" id="weight1"/></th>
 	    	            <th id="protein1"></th>
 	    	            <th id="fat1"></th>
 	    	            <th id="carbonates1"></th>
 	    	            <th id="kcal1"></th>
-	    	            <input type="hidden" ng-model="protein1" id="hiddenP1">
-	    	            <input type="hidden" ng-model="fat1" id="hiddenF1">
-	    	            <input type="hidden" ng-model="carbo1" id="hiddenC1">
-	    	            <input type="hidden" ng-model="kcal1" id="hiddenK1">
+	    	            <input type="hidden" id="hiddenP1">
+	    	            <input type="hidden" id="hiddenF1">
+	    	            <input type="hidden" id="hiddenC1">
+	    	            <input type="hidden" id="hiddenK1">
 	    	        </tr>
 	    	</tbody>
 	    	<tfoot>
@@ -91,14 +91,14 @@ a{
           <h4 class="modal-title">Neue Datei<a id="modalAdd" data-dismiss="modal"> hinzufügen.</a></h4>
         </div>
         <div class="modal-body">
-          <tr>
-  		<th><input type="text" id="newProdName" placeholder="Name vom Lebensmittel"></th>
-  		<th><input type="text" id="newEiweis" placeholder="Eiweis pro 100 gr."></th>
-  		<th><input type="text" id="newFat" placeholder="Fette pro 100 gr."></th>
-  		<th><input type="text" id="newCarbo" placeholder="Kohlenhydraten pro 100 gr."></th>
-  		<th><input type="text" id="newKcal" placeholder="Kcal pro 100 gr."></th>
-  	</tr>
-  <button type="button" class="btn btn-link" id="newDateSave">Neues Lebensmittel hinzufügen</button> 
+	        <tr>
+		  		<th><input type="text" id="newProdName" placeholder="Name vom Lebensmittel"></th>
+		  		<th><input type="text" id="newEiweis" placeholder="Eiweis pro 100 gr."></th>
+		  		<th><input type="text" id="newFat" placeholder="Fette pro 100 gr."></th>
+		  		<th><input type="text" id="newCarbo" placeholder="Kohlenhydraten pro 100 gr."></th>
+		  		<th><input type="text" id="newKcal" placeholder="Kcal pro 100 gr."></th>
+	  		</tr>
+  			<button type="button" class="btn btn-link" id="newDateSave">Neues Lebensmittel hinzufügen</button> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
