@@ -1,7 +1,8 @@
 /*need to add!!!! 
 
 	jquery and php:
-		need to make logik to add a new product
+		valid for limit to add identical product
+		valid onchange
 */
 
 var i=2;
