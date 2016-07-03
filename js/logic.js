@@ -1,12 +1,7 @@
 /*need to add!!!! 
-<<<<<<< HEAD
-jquery:
-	json fronm db
-=======
 
-jquery and php:
-	need to make logik to add a new product
->>>>>>> testing
+	jquery and php:
+		need to make logik to add a new product
 */
 
 var i=2;
@@ -94,7 +89,7 @@ function autoCom(){
 
 
             $( "#product"+(i-1) ).autocomplete({
-               	source: 'Ajax.php',
+               	source: 'Ajax.php?action=get',
                	select: function(event, ui){
                 	$('#hiddenP'+(i-1)).val(ui.item.protein);
                 	$('#hiddenF'+(i-1)).val(ui.item.fat);
