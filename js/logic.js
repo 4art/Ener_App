@@ -3,6 +3,7 @@
 	jquery and php:
 		valid for limit to add identical product
 		valid onchange
+		float for weiget
 */
 
 var i=2;
