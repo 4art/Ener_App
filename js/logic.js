@@ -156,7 +156,7 @@ function prodAdd(){
 		$('#errorText').removeClass('errorHid').addClass('errorVis');//error on
 	});
 }
-function addNew() {
+function addNew() {//validation
 	$('#newDateSave').click(function() {
 		var prodNameNew = $('#newProdName');
 		var protNew = $('#newEiweis');
@@ -168,8 +168,13 @@ function addNew() {
 			addErr(prodNameNew);
 
 		}
+		else if ($.trim(prodNameNew.val()).search(/\d/) != -1 ) {
+			addErr(prodNameNew);
+			$('#errorModNum').removeClass('errorHid').addClass('errorVis');
+		}
 		else{
 			delErr(prodNameNew);
+			$('#errorModNum').removeClass('errorVis').addClass('errorHid');
 		}
 		if (protNew.val()=="" || parseFloat(protNew.val())<0 || parseFloat(protNew.val())>100) {
 			addErr(protNew);
@@ -204,23 +209,36 @@ function addNew() {
 		}
 		else{
 			$('#errorCountText').removeClass('errorVis').addClass('errorHid');
+			
+				var dataArr = {
+					"items":[
+								{"label":$('#newProdName').val(), 
+								"protein":parseFloat($('#newEiweis').val()),
+								"fat":parseFloat($('#newFat').val()),
+								"carbonates":parseFloat($('#newCarbo').val()),
+								"kcal":parseFloat($('#newKcal').val())
+							}
+				
+								]};
+				$.ajax({
+					url: 'Ajax.php?action=set',
+					type: 'POST',
+					data: JSON.stringify(dataArr),
+					//contentType: 'application/json; charset=utf-8',
+					//dataType: 'json',
+					//async: false,
+					success: function(msg) {
+				        alert(msg);
+				    }
+				});
 		}
 		
 
-			/*var data = [
-			{"label":$('#newProdName').val(), 
-			"protein":$('#newEiweis').val(),
-			"fat":$('#newFat').val(),
-			"carbonates":$('#newCarbo').val(),
-			"kcal":$('#newKcal').val()
-		}
-
-			];*/
-			function addErr(value){
+			function addErr(value){ //add Error
 				value.addClass('error');
 				$('#errorModText').removeClass('errorHid').addClass('errorVis');
 			}
-			function delErr(value){
+			function delErr(value){//delete Error
 				value.removeClass('error');
 				$('#errorModText').removeClass('errorVis').addClass('errorHid');
 			}

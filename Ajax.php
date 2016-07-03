@@ -10,4 +10,10 @@
 		echo(json_encode($arr));
 		$obj->disconnect();
 		}	
+	elseif ($_REQUEST['action']==='set') {
+		$rest_json = file_get_contents("php://input");
+		$rest_vars = json_decode($rest_json, true);
+		echo($rest_vars['items'][0]['label']);
+		//print_r($rest_vars);
+	}
 ?>
