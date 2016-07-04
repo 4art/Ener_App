@@ -6,11 +6,13 @@
 		$obj=new DB();
 		$obj->connect();
 		$arr=$obj->getArray("SELECT * FROM products WHERE label LIKE '%".$_GET['term']."%'");
+		//$arr=$obj->getArray("SELECT count(*) FROM products");
 		//print_r($arr);
 		echo(json_encode($arr));
 		$obj->disconnect();
 		}	
 	elseif ($_REQUEST['action']==='set') {
+		$a=0;
 		$rest_json = file_get_contents("php://input");
 		$rest_vars = json_decode($rest_json, true);
 		//echo($rest_vars['items'][0]['label']);
@@ -23,12 +25,24 @@
 		//echo "label:",$label,", protein:",$protein,", fat: ",$fat,", carbo:",$carbo,", kcal:",$kcal;
 		$setDB=new DB();
 		$setDB->connect();
-		$sql="INSERT INTO `products` (`label`, `protein`, `fat`, `carbo`, `kcal`) VALUES ('".$label."', '".$protein."', '".$fat."', '".$carbo."', '".$kcal."')";
-		$status=$setDB->set($sql);
-		$setDB->disconnect();
-		if($status==false){
-			echo "error";
+		$count=$setDB->getArray("SELECT count(*) FROM products");
+		$names=$setDB->getArray("SELECT label FROM products");
+		//echo($names[0]['label']);
+		for ($i=0; $i < $count[0][0]; $i++) { 
+			if ($names[$i]['label']==$label) {
+				$a++;
+			}
 		}
+		if ($a==0) {
+			$sql="INSERT INTO `products` (`label`, `protein`, `fat`, `carbo`, `kcal`) VALUES ('".$label."', '".$protein."', '".$fat."', '".$carbo."', '".$kcal."')";
+			$status=$setDB->set($sql);
+		}
+		$setDB->disconnect();
+		/*if($status==false){
+			echo "error";
+		}*/
 		//print_r($rest_vars);
+		//echo($count[0][0]);
 	}
+
 ?>

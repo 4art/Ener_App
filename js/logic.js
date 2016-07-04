@@ -159,6 +159,7 @@ function prodAdd(){
 	});
 }
 function addNew() {//validation
+	
 	$('#newDateSave').click(function() {
 		var prodNameNew = $('#newProdName');
 		var protNew = $('#newEiweis');
@@ -211,7 +212,7 @@ function addNew() {//validation
 		}
 		else{
 			$('#errorCountText').removeClass('errorVis').addClass('errorHid');
-			
+			//send data to server
 				var dataArr = {
 					"items":[
 								{"label":$('#newProdName').val(), 
