@@ -4,29 +4,11 @@
   <title>Energize</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-a{
-	cursor: pointer;
-}
-.success{
-	background-color: #e6eeff;
-}
-.error{
-	background-color: #ffe6e6;
-}
-.errorVis{
-	color: #ff8080;
-	display: block;	
-}
-.errorHid{
-	display: none;
-}
-
-  </style>
   <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <!--<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">-->
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <div class="container" ng-app="">
@@ -36,25 +18,25 @@ a{
 	  	<table class="table table-hover">
 	    	<thead>
 	    	  <tr>
-	    	    	<th>№ ▼</th>
-	    	        <th>Lebensmittel▼ </th>
-	    	        <th>Gewicht (Gramm)▼ </th>
-	    	        <th>Eiweiße (Gramm)▼ </th>
-	    	        <th>Fette (Gramm)▼ </th>
-	    	        <th>Kohlenhydrate (Gramm)▼ </th>
-	    	        <th>Kilokalorien (kcal)▼ </th>
+	    	    	<th class="col_1"><p>№ ▼</p></th>
+	    	        <th class="col_2"><p>Lebensmittel ▼<span class="resp_hid"> </span></p></th>
+	    	        <th class="col_3"><p><span class="resp_hid">Gewicht (Gramm)▼ </span><span class="resp_vis">Gewicht (g)</span></p></th>
+	    	        <th class="col_4"><p class="vertical">Eiweiße<span class="resp_hid"> (Gramm)▼ </span></p></th>
+	    	        <th class="col_5"><p class="vertical">Fette<span class="resp_hid"> (Gramm)▼ </span></p></th>
+	    	        <th class="col_6"><p class="vertical"><span class="resp_hid">Kohlenhydrate (Gramm)▼ </span><span class="resp_vis">Kohlen-<br>hydraten</span></p></th>
+	    	        <th class="col_7"><p class="vertical"><span class="resp_hid">Kilokalorien (</span>kcal<span class="resp_hid">)▼ </span></p></th>
 	    	  </tr>
 	    	</thead>
 		<form method="post" name="prodForm" id="form">
 	    	<tbody>
 	    	  		<tr id="tCop">
-	    	            <th id="number1">1.</th>
-	    	            <th><input type='text' id="product1"></th>
-	    	            <th><input type="number" id="weight1"/></th>
-	    	            <th id="protein1"></th>
-	    	            <th id="fat1"></th>
-	    	            <th id="carbonates1"></th>
-	    	            <th id="kcal1"></th>
+	    	            <th class="col_1" id="number1">1.</th>
+	    	            <th class="col_2"><input class="col-md-11 col-xs-12" type='text' id="product1"></th>
+	    	            <th class="col_3"><input class="col-md-11 col-xs-12" type="number" id="weight1"/></th>
+	    	            <th class="col_4" id="protein1"></th>
+	    	            <th class="col_5" id="fat1"></th>
+	    	            <th class="col_6" id="carbonates1"></th>
+	    	            <th class="col_7" id="kcal1"></th>
 	    	            <input type="hidden" id="hiddenP1">
 	    	            <input type="hidden" id="hiddenF1">
 	    	            <input type="hidden" id="hiddenC1">
@@ -64,13 +46,13 @@ a{
 	    	<tfoot>
 	    	  
 	    	    <tr>
-	    	        <th></th>
-	    	        <th></th>
-	    	        <th id="weiGen"></th>
-	    	        <th id="protGen"></th>
-	    	        <th id="fatGen"></th>
-	    	        <th id="carboGen"></th>
-	    	        <th id="kcalGen"></th>
+	    	        <th class="col_1"></th>
+	    	        <th class="col_2"></th>
+	    	        <th class="col_3" id="weiGen"></th>
+	    	        <th class="col_4" id="protGen"></th>
+	    	        <th class="col_5" id="fatGen"></th>
+	    	        <th class="col_6" id="carboGen"></th>
+	    	        <th class="col_7" id="kcalGen"></th>
 	    	    </tr>
 	    	</tfoot>
 	  	</table>
