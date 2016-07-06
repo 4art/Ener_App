@@ -8,23 +8,12 @@
 		private $dbh;
 		function __construct()
 		{
-			$this->conn_data=array(
-				"host" => "localhost",
-				"dbname" => "Energize",
-				"user" => "root",
-				"password" => ""
-			);
+			include 'data.php';
 		}
 		public function connect()
 		{
 			$dns="mysql:host={$this->conn_data['host']};dbname={$this->conn_data['dbname']}";
-			try {
-				$this->dbh=new PDO($dns, $this->conn_data['user'], $this->conn_data['password']);
-				
-			} catch (PDOException $e) {
-				print "Error!: " . $e->getMessage() . "<br/>";
-    			die();
-			}
+			$this->dbh=new PDO($dns, $this->conn_data['user'], $this->conn_data['password']);
 		}
 		public function getArray($sql)
 		{	

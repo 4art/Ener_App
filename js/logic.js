@@ -107,6 +107,11 @@ function autoCom(){
 }
 function prodCount(){
 	$('#weight'+(i-1)).change(function() {
+			if ($(this).val()<0) {
+				$(this).addClass('error');
+				$('#errorText').removeClass('errorHid').addClass('errorVis');
+				return;
+			}
 			if ($('#product'+(i-1)).val()!="") {
 				$(this).removeClass('error');
 				$('#product'+(i-1)).removeClass('error');	
