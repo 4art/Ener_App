@@ -36,7 +36,14 @@ a{
     }
   /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
   
-  
-    input{padding: 1px;}
 
+
+}
+@media only screen and (max-width: 656px){
+    .prodInp{
+        width: 90px;
+    }
+    th{
+        line-height: 10px;
+    }
 }
