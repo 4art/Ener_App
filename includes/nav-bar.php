@@ -6,15 +6,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Metra Nutrition</a>
+      <a class="navbar-brand" href="index.php">Metra Nutrition</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><a href="index.php">Home</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ernährung <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Nährwertzähler</a></li>
+            <li><a href="naehrwertzaeler.php">Nährwertzähler</a></li>
             <li><a href="#">Rationnen</a></li>
           </ul>
         </li>

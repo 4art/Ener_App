@@ -25,7 +25,7 @@
               <h2>Rationszähler.</h2>
               <!--<p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>-->
               <p>Probieren Sie Gratis den neuen Rechner deines Rationes!</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Nährwertzähler</a></p>
+              <p><a class="btn btn-lg btn-primary" href="naehrwertzaeler.php" role="button">Nährwertzähler</a></p>
             </div>
           </div>
         </div>
