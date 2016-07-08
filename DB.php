@@ -17,13 +17,16 @@
 		}
 		public function getArray($sql)
 		{	
-			$i=0;
+			/*$i=0;
 			foreach($this->dbh->query($sql) as $row) {
 				$result[$i]=$row;
 				$i++;
-    		}
-        	$result=$this->convert($result);
-        	return $result;
+    		}*/
+    		//made as PDO
+    		$result=$this->dbh->query($sql);
+    		$row=$result->fetchAll(PDO::FETCH_ASSOC);	
+        	$row=$this->convert($row);
+        	return $row;
 		}
 		public function convert($array)
 		{
