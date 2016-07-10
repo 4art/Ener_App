@@ -42,24 +42,11 @@
 		{
 			$result=$this->dbh->exec($value);
 		}
-		public function setProducts($label, $protein, $fat, $carbo, $kcal)
-		{
-			$allowed=array(NULL, $label, $protein, $fat, $carbo, $kcal);
-			$sql="INSERT INTO user SET ".pdoSet($allowed, $values);
-			$smt=$this->dbh->prepare($sql);
-			$smt->execute($values);
-		}
 		public function disconnect()
 		{
 			$this->dbh=null;
 		}
 
 	}
-	/*$obj=new DB;
-	$obj->connect();
-	$arr=$obj->getArray("SELECT * FROM products WHERE label LIKE '%".$_GET['term']."%'");
-	//print_r($arr);
-	echo(json_encode($arr));
-	$obj->disconnect();*/
  
  ?>
