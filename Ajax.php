@@ -36,6 +36,9 @@
 		if ($a==0) {
 			$sql="INSERT INTO `products` (`label`, `protein`, `fat`, `carbo`, `kcal`) VALUES ('".$label."', '".$protein."', '".$fat."', '".$carbo."', '".$kcal."')";
 			$status=$setDB->set($sql);
+			/*pdo
+			$setDB->setProducts($label, $protein, $fat, $carbo, $kcal);
+			*/
 		}
 		$setDB->disconnect();
 		/*if($status==false){

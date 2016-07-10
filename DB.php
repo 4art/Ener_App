@@ -47,6 +47,13 @@
 				return false;
 			}
 		}
+		public function setProducts($label, $protein, $fat, $carbo, $kcal)
+		{
+			$allowed=array(NULL, $label, $protein, $fat, $carbo, $kcal);
+			$sql="INSERT INTO user SET ".pdoSet($allowed, $values);
+			$smt=$this->dbh->prepare($sql);
+			$smt->execute($values);
+		}
 		public function disconnect()
 		{
 			$this->dbh=null;
