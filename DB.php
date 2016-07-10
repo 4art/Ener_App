@@ -40,12 +40,7 @@
 		}
 		public function set($value)
 		{
-			if ($this->dbh->query($value)===TRUE) {
-				return true;
-			}
-			else{
-				return false;
-			}
+			$result=$this->dbh->exec($value);
 		}
 		public function setProducts($label, $protein, $fat, $carbo, $kcal)
 		{
