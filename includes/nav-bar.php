@@ -21,7 +21,7 @@
         <li><a href="#">Kontakt</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><!--<span class="glyphicon glyphicon-user">--></span> Registration</a></li>
+        <li><a href="regist.php"><!--<span class="glyphicon glyphicon-user">--></span> Registration</a></li>
         <li><a href="signin.php"><!--<span class="glyphicon glyphicon-log-in">--></span> Einloggen</a></li>
       </ul>
     </div>
