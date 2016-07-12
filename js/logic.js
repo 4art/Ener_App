@@ -13,6 +13,7 @@ $(document).ready(function() {
 		prodAdd();
 		modalAdd();
 		addNew();
+		sigIn();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()=="" || 
@@ -255,5 +256,40 @@ function addNew() {//validation
 				value.removeClass('error');
 				$('#errorModText').removeClass('errorVis').addClass('errorHid');
 			}
+	});
+}
+function sigIn(){
+	//onchange valid
+	$('#inputEmail_Log').change(function() {
+		var valInp = $(this).val();
+		valInp = $.trim(valInp);
+		$(this).css('property', 'value');
+		if (valInp=='' || valInp.length<2) {
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#error_log').removeClass('errorHid').addClass('errorVis');
+		}
+		else{
+			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$(this).css('background-color', 'white');
+			$('#error_log').removeClass('errorVis').addClass('errorHid');
+		}
+
+	});
+	$('#inputPassword_Log').change(function() {
+		var valInp = $(this).val();
+		valInp = $.trim(valInp);
+		$(this).css('property', 'value');
+		if (valInp=='' || valInp.length<6) {
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#error_log').removeClass('errorHid').addClass('errorVis');
+		}
+		else{
+			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$(this).css('background-color', 'white');
+			$('#error_log').removeClass('errorVis').addClass('errorHid');
+		}
+
 	});
 }
