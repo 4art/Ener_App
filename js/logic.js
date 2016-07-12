@@ -260,11 +260,15 @@ function addNew() {//validation
 }
 function sigIn(){
 	//onchange valid
+	 var login=$('#inputEmail_Log').val();
+	 var pass=$('#inputPassword_Log').val();
+	 login=$.trim(login);
+	 pass=$.trim(pass);
 	$('#inputEmail_Log').change(function() {
-		var valInp = $(this).val();
-		valInp = $.trim(valInp);
+		login = $(this).val();
+		login = $.trim(login);
 		$(this).css('property', 'value');
-		if (valInp=='' || valInp.length<2) {
+		if (login=='' || login.length<2) {
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_log').removeClass('errorHid').addClass('errorVis');
@@ -277,10 +281,10 @@ function sigIn(){
 
 	});
 	$('#inputPassword_Log').change(function() {
-		var valInp = $(this).val();
-		valInp = $.trim(valInp);
+		pass = $(this).val();
+		pass = $.trim(pass);
 		$(this).css('property', 'value');
-		if (valInp=='' || valInp.length<6) {
+		if (pass=='' || pass.length<6) {
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_log').removeClass('errorHid').addClass('errorVis');
@@ -292,4 +296,29 @@ function sigIn(){
 		}
 
 	});
+	$('#login_but').click(function() {
+		if (login=='' || login.length<2) {
+			$('#inputEmail_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputEmail_Log').css('background-color', '#ffe6e6');
+			$('#error_log').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$('#inputEmail_Log').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputEmail_Log').css('background-color', 'white');
+			$('#error_log').removeClass('errorVis').addClass('errorHid');
+		}
+		if (pass=='' || pass.length<2) {
+			$('#inputPassword_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Log').css('background-color', '#ffe6e6');
+			$('#error_log').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$('#inputPassword_Log').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputPassword_Log').css('background-color', 'white');
+			$('#error_log').removeClass('errorVis').addClass('errorHid');
+		}
+	});
+
 }

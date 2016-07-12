@@ -25,7 +25,7 @@
           </label>
           <p id="error_log" class="errorHid">* zu kurz</p>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id="login_but" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
       <div class="empty"></div>
       <?include 'includes/footer.php'; ?>
