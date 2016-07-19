@@ -7,7 +7,7 @@
 
   <body ng-app="valid">
 
-    <div class="container">
+    <div class="container" ng-controller="ctrl">
     <?include 'includes/nav-bar.php'; ?>
       <form class="form-signin" name="form_valid">
        <!-- <h2 class="form-signin-heading">Bitte Loggen Sie sich ein.</h2>-->

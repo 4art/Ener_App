@@ -1,7 +1,11 @@
 <?php
+	
+	include 'Ajax_data.php';
+	$obj=new Ajax_data();
+	$obj->checkReq();
 	//error_reporting(0);
-	require_once 'DB.php';
-	if ($_REQUEST['action']==='get') {
+	/*require_once 'DB.php';
+	if ($_REQUEST['action']==='getProd') {
 			# code...
 		$obj=new DB();
 		$obj->connect();
@@ -11,7 +15,7 @@
 		echo(json_encode($arr));
 		$obj->disconnect();
 		}	
-	elseif ($_REQUEST['action']==='set') {
+	elseif ($_REQUEST['action']==='setProd') {
 		$a=0;
 		$rest_json = file_get_contents("php://input");
 		$rest_vars = json_decode($rest_json, true);
@@ -39,13 +43,13 @@
 			/*pdo
 			$setDB->setProducts($label, $protein, $fat, $carbo, $kcal);
 			*/
-		}
+		/*}
 		$setDB->disconnect();
 		/*if($status==false){
 			echo "error";
 		}*/
 		//print_r($rest_vars);
 		//echo($count[0][0]);
-	}
+	//}
 
 ?>

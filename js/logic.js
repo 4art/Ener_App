@@ -95,7 +95,7 @@ function autoCom(){
 
 
             $( "#product"+(i-1) ).autocomplete({
-               	source: 'Ajax.php?action=get',
+               	source: 'Ajax.php?action=getProd',
                	select: function(event, ui){
                 	$('#hiddenP'+(i-1)).val(ui.item.protein);
                 	$('#hiddenF'+(i-1)).val(ui.item.fat);
@@ -230,7 +230,7 @@ function addNew() {//validation
 				
 								]};
 				$.ajax({
-					url: 'Ajax.php?action=set',
+					url: 'Ajax.php?action=setProd',
 					type: 'POST',
 					data: JSON.stringify(dataArr),
 					//contentType: 'application/json; charset=utf-8',

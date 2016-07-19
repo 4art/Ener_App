@@ -7,7 +7,7 @@
 <body>
 <div class="container" ng-app="">
 	<?include 'includes/nav-bar.php'; ?>
-	<h2>Mährwertzähler</h2>
+	<h2>Nährwertzähler</h2>
 	<p>Hang zu schreiben am ersten Feld an.</p>
 	<div class="table-responsive">
 		
