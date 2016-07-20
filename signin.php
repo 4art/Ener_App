@@ -23,7 +23,7 @@
           <label>
             <input type="checkbox" value="remember-me"> Merken
           </label>
-          <p id="error_log" class="errorHid">* Fü</p>
+          <p id="error_log" class="errorHid">* Füllen Sie alle Felder richtig aus.</p>
         </div>
         <button id="login_but" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>

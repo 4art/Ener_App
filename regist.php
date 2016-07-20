@@ -18,15 +18,18 @@
         <div class="form-group">
           <label for="inputEmail" class="sr-only">Email</label>
           <input type="email" id="inputEmail_Reg" class="form-control" placeholder="Email" required autofocus>
+          <p class="errorHid" id="emailError">Schreiben Sie eine echte Email Adresse</p>
         </div>
         <div class="form-group">
           <label for="inputPassword" class="sr-only">Kennword</label>
           <input type="password" id="inputPassword_Reg" class="form-control" placeholder="Kennword" required>
+          <p class="errorHid" id="password_error_reg">* Das Kennwort ist zu kurz</p>
         </div>
         <div class="form-group">
           <label for="inputPassword" class="sr-only">Kennword wiederholen</label>
-          <input type="password" id="inputPassword_Reg" class="form-control" placeholder="Kennword wieder" required>
+          <input type="password" id="inputPassword_Reg_re" class="form-control" placeholder="Kennword wieder" required>
         </div>
+        <p class="errorHid" id="error_regist">* Füllen Sie alle Felder richtig aus.</p>
         <button id="reg_but" class="btn btn-lg btn-primary btn-block" type="submit">Registrieren</button>
       </form>
       <div class="empty"></div>

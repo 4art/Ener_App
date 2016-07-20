@@ -7,12 +7,21 @@
 	{
 		private $action;
 		private $term;
+		private $name;
+		private $email;
+		private $password;
 		function __construct()
 		{
 			# 
 			if (isset($_REQUEST['action'])) {
-				# code...
+				# appropriate request t variables
 				$this->action=$_REQUEST['action'];
+				if (isset($_REQUEST['name']) && isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
+					$this->name=$_REQUEST['name'];
+					$this->email=$_REQUEST['email'];
+					$this->password=$_REQUEST['password'];
+					
+				}
 			}
 			parent::__construct();
 		}
@@ -65,6 +74,12 @@
 				$status=$this->set($sql);	
 				
 			}
+		}
+		public function saveUserAction()
+		{
+			# save User
+			
+				echo($this->name.', '.$this->email.', '.$this->password);
 		}
 		public function get($value)
 		{

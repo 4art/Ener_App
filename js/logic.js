@@ -14,6 +14,7 @@ $(document).ready(function() {
 		modalAdd();
 		addNew();
 		sigIn();
+		regist();
 	$('#button').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()=="" || 
@@ -322,3 +323,174 @@ function sigIn(){
 	});
 
 }
+function regist() {
+	// body...
+	var name;
+	var email;
+	var password;
+	var rePassword;
+	$('#inputName_Reg').change(function() {
+			/* valid onChange */
+		var Value=$(this).val();
+		Value=$.trim(Value);
+		name=Value;
+		if(Value.length<2 || Value==''){
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$(this).css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+		}
+	});		
+	$('#inputEmail_Reg').change(function() {
+			/* valid onChange */
+		var Value=$(this).val();
+		Value=$.trim(Value);
+		email=Value;
+		if(Value.length<2 || Value==''){
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else if(!isValidEmailAddress(Value)){
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#emailError').removeClass('errorHid').addClass('errorVis');
+		}
+		else{
+			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$(this).css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			$('#emailError').removeClass('errorVis').addClass('errorHid');
+		}
+	});		
+	$('#inputPassword_Reg').change(function() {
+			/* valid onChange */
+		var Value=$(this).val();
+		Value=$.trim(Value);
+		password=Value;
+		if(Value.length<6 || Value==''){
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#inputPassword_Reg_re').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Reg_re').css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			$('#password_error_reg').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$(this).css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			$('#password_error_reg').removeClass('errorVis').addClass('errorHid');
+		}
+
+	});		
+	$('#inputPassword_Reg_re').change(function() {
+			/* valid onChange */
+		var Value=$(this).val();
+		Value=$.trim(Value);
+		rePassword=Value;
+		if(Value.length<6 || Value=='' || Value!=password){
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#inputPassword_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Reg').css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$(this).css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+		}
+	});	
+	$('#reg_but').click(function() {
+		/* valid onClick */
+		if ($('#inputName_Reg').val().length<2 || $('#inputName_Reg').val()=='') {
+			$('#inputName_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputName_Reg').css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$('#inputName_Reg').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputName_Reg').css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+		}
+		if(/*$('#inputEmail_Reg').length<5 || */$('#inputEmail_Reg')==''){
+			$('#inputEmail_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputEmail_Reg').css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			alert('bla');
+			return;
+		}
+		else if(!isValidEmailAddress($('#inputEmail_Reg').val())){
+			$('#inputEmail_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputEmail_Reg').css('background-color', '#ffe6e6');
+			$('#emailError').removeClass('errorHid').addClass('errorVis');
+		}
+		else{
+			$('#inputEmail_Reg').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputEmail_Reg').css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			$('#emailError').removeClass('errorVis').addClass('errorHid');
+		}
+		if($('#inputPassword_Reg').val().length<6 || $('#inputPassword_Reg').val()==''){
+			$('#inputPassword_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Reg').css('background-color', '#ffe6e6');
+			$('#inputPassword_Reg_re').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Reg_re').css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			return;
+		}
+		else{
+			$('#inputPassword_Reg').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputPassword_Reg').css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+		}
+		if($('#inputPassword_Reg_re').val().length<6 ||
+		 $('#inputPassword_Reg_re').val()=='' ||
+		  $('#inputPassword_Reg_re').val()!=$('#inputPassword_Reg').val()){
+			$('#inputPassword_Reg_re').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Reg_re').css('background-color', '#ffe6e6');
+			$('#inputPassword_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputPassword_Reg').css('background-color', '#ffe6e6');
+			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
+		else{
+			$('#inputPassword_Reg_re').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputPassword_Reg_re').css('background-color', 'white');
+			$('#inputPassword_Reg').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
+			$('#inputPassword_Reg').css('background-color', 'white');
+			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+		}
+		//send data to DB
+		nameUser=$('#inputName_Reg').val();
+		emailUser=$('#inputEmail_Reg').val();
+		passwordUser=$('#inputPassword_Reg').val();
+		var dataUser={name:nameUser, email:emailUser, password:passwordUser};
+		$.ajax({
+			url: 'Ajax.php?action=saveUser',
+			type: 'POST',
+			dataType: 'html',
+			data: dataUser,
+			success:function(argument) {
+				// result
+				alert(argument);
+			}
+		});
+	});
+}
+function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+};
