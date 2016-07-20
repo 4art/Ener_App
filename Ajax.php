@@ -1,8 +1,8 @@
 <?php
 	
 	//error_reporting(0);
-	include 'Ajax_data.php';
-	$obj=new Ajax_data();
+	include 'Ajax.class.php';
+	$obj=new Ajax();
 	$obj->checkReq();
 
 ?>

@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class Ajax_data extends DB
+	class Ajax extends DB
 	{
 		private $action;
 		private $term;
