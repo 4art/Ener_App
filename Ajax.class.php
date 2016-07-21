@@ -101,17 +101,20 @@
 			$sql="SELECT password FROM names WHERE email='$this->email'";
 			$arr=$this->getArray($sql);
 			$this->hash=$arr[0]['password'];
+			$this->hash='$$2y$10$Kf.jB9/00c3QTi8mzo1q2O4KFRoLTMtWaygqzREE1AgUCDS6.Xw7W';
+			//echo($this->hash);
 			if ($arr==true) {
 				if (password_verify($this->password, $this->hash)) {
     				// Success!
-					echo(1);
+					echo('success');
 				}
 				else{
 					echo(0);
+				echo('error');
 				}
 			}
 			else{
-				echo(0);
+				echo('error');
 			}
 			//print_r($arr);
 			

@@ -345,7 +345,7 @@ function sigIn(){
 			url: 'Ajax.php?action=checkUser',
 			type: 'POST',
 			dataType: 'html',
-			data: {email: email, password:pass},
+			data: {email: $('#inputEmail_Log').val(), password:$('#inputPassword_Log').val()},
 			success:function(argument) {
 				// check user name and password. 0=false, 1=true
 				/*if (argument==0) {
