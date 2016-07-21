@@ -334,16 +334,24 @@ function regist() {
 		var Value=$(this).val();
 		Value=$.trim(Value);
 		name=Value;
+		checkNameReg(name);
 		if(Value.length<2 || Value==''){
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_regist').removeClass('errorHid').addClass('errorVis');
 			return;
 		}
+		else if (status==1) {
+			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$(this).css('background-color', '#ffe6e6');
+			$('#logUniqError').removeClass('errorHid').addClass('errorVis');
+			return;
+		}
 		else{
 			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
 			$(this).css('background-color', 'white');
 			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			$('#logUniqError').removeClass('errorVis').addClass('errorHid');
 		}
 	});		
 	$('#inputEmail_Reg').change(function() {
@@ -412,6 +420,7 @@ function regist() {
 	});	
 	$('#reg_but').click(function() {
 		/* valid onClick */
+		checkNameReg(name);
 		if ($('#inputName_Reg').val().length<2 || $('#inputName_Reg').val()=='') {
 			$('#inputName_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$('#inputName_Reg').css('background-color', '#ffe6e6');
@@ -488,6 +497,32 @@ function regist() {
 				alert(argument);
 			}
 		});
+	});
+}
+function checkNameReg(Value) {
+	// check uniq for email and login 
+	var data={name:Value};
+	var status;
+	$.ajax({
+		url: 'Ajax.php?action=checkNameReg',
+		type: 'POST',
+		dataType: 'html',
+		data: data,
+		success:function(argument) {
+			// 0=uniq, 1=login is not uniq
+			//alert(argument);
+			if (argument==1) {
+				$('#inputName_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+				$('#inputName_Reg').css('background-color', '#ffe6e6');
+				$('#logUniqError').removeClass('errorHid').addClass('errorVis');
+				$('#logUniqSuccess').removeClass('successVis').addClass('successHid');
+				return;
+			}
+			else{
+				$('#logUniqError').removeClass('errorVis').addClass('errorHid');
+				$('#logUniqSuccess').removeClass('successHid').addClass('successVis');
+			}
+		}
 	});
 }
 function isValidEmailAddress(emailAddress) {

@@ -10,17 +10,24 @@
 		private $name;
 		private $email;
 		private $password;
+		private $hash;
 		function __construct()
 		{
 			# 
 			if (isset($_REQUEST['action'])) {
 				# appropriate request t variables
 				$this->action=$_REQUEST['action'];
-				if (isset($_REQUEST['name']) && isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
+				if (isset($_REQUEST['name'])) {
 					$this->name=$_REQUEST['name'];
-					$this->email=$_REQUEST['email'];
-					$this->password=$_REQUEST['password'];
 					
+				}
+				if (isset($_REQUEST['email'])) {
+					# code...
+					$this->email=$_REQUEST['email'];
+				}
+				if (isset($_REQUEST['password'])) {
+					# code...
+					$this->password=$_REQUEST['password'];
 				}
 			}
 			parent::__construct();
@@ -79,7 +86,29 @@
 		{
 			# save User
 			
-				echo($this->name.', '.$this->email.', '.$this->password);
+			//echo($this->name.', '.$this->email.', '.$this->password);
+			//$this->hash=password_hash($this->password, PASSWORD_DEFAULT);
+			$this->hash=password_hash($this->password, PASSWORD_DEFAULT);
+			//echo($this->hash);
+			$this->name=trim($this->name, "\x00..\x1F");
+			$sql="INSERT INTO names (name, email, password) VALUES ('$this->name', '$this->email', '$this->hash')";
+			$result=$this->set($sql);
+				echo($result);
+		}
+		public function checkNameRegAction()
+		{
+			# code...
+			$sql="SELECT name FROM names WHERE name='$this->name'";
+			$arr=$this->getArray($sql);
+			if ($arr==true) {
+				# name is not uniq
+				$val=1;
+				echo($val);
+			}
+			else {
+				$val=0;
+				echo($val);
+			}
 		}
 		public function get($value)
 		{

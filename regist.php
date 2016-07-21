@@ -12,13 +12,16 @@
       <form class="form-signin" name="form_valid">
        <!-- <h2 class="form-signin-heading">Bitte Loggen Sie sich ein.</h2>-->
         <div class="form-group">
-          <label for="inputName" class="sr-only">Name</label>
-          <input type="test" id="inputName_Reg" class="form-control" placeholder="Name" required autofocus>
+          <label for="inputName" class="sr-only">Login</label>
+          <input type="test" id="inputName_Reg" class="form-control" placeholder="Login" required autofocus>
+          <p class="errorHid" id="logUniqError">* Das Login ist schon Besetzt</p>
+          <p class="successHid" id="logUniqSuccess">* Das Login ist frei</p>
         </div>
         <div class="form-group">
           <label for="inputEmail" class="sr-only">Email</label>
           <input type="email" id="inputEmail_Reg" class="form-control" placeholder="Email" required autofocus>
-          <p class="errorHid" id="emailError">Schreiben Sie eine echte Email Adresse</p>
+          <p class="errorHid" id="emailError">Schreiben Sie eine echte Email Adresse.</p>
+          <p class="errorHid" id="emailUniqError">* Das Email ist schon Besetzt.</p>
         </div>
         <div class="form-group">
           <label for="inputPassword" class="sr-only">Kennword</label>
