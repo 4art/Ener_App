@@ -339,12 +339,14 @@ function regist() {
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#reg_but'));
 			return;
 		}
 		else if (status==1) {
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#logUniqError').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#reg_but'));
 			return;
 		}
 		else{
@@ -352,6 +354,7 @@ function regist() {
 			$(this).css('background-color', 'white');
 			$('#error_regist').removeClass('errorVis').addClass('errorHid');
 			$('#logUniqError').removeClass('errorVis').addClass('errorHid');
+			activeButton($('#reg_but'));
 		}
 	});		
 	$('#inputEmail_Reg').change(function() {
@@ -364,18 +367,22 @@ function regist() {
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#reg_but'));
 			return;
 		}
 		else if(!isValidEmailAddress(Value)){
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#emailError').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#reg_but'));
+			return;
 		}
 		else{
 			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
 			$(this).css('background-color', 'white');
 			$('#error_regist').removeClass('errorVis').addClass('errorHid');
 			$('#emailError').removeClass('errorVis').addClass('errorHid');
+			activeButton($('#reg_but'));
 		}
 	});		
 	$('#inputPassword_Reg').change(function() {
@@ -390,6 +397,7 @@ function regist() {
 			$('#inputPassword_Reg_re').css('background-color', '#ffe6e6');
 			$('#error_regist').removeClass('errorHid').addClass('errorVis');
 			$('#password_error_reg').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#reg_but'));
 			return;
 		}
 		else{
@@ -397,6 +405,7 @@ function regist() {
 			$(this).css('background-color', 'white');
 			$('#error_regist').removeClass('errorVis').addClass('errorHid');
 			$('#password_error_reg').removeClass('errorVis').addClass('errorHid');
+			activeButton($('#reg_but'));
 		}
 
 	});		
@@ -411,12 +420,14 @@ function regist() {
 			$('#inputPassword_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$('#inputPassword_Reg').css('background-color', '#ffe6e6');
 			$('#error_regist').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#reg_but'));
 			return;
 		}
 		else{
 			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
 			$(this).css('background-color', 'white');
 			$('#error_regist').removeClass('errorVis').addClass('errorHid');
+			activeButton($('#reg_but'));
 		}
 	});	
 	$('#reg_but').click(function() {
@@ -438,8 +449,6 @@ function regist() {
 			$('#inputEmail_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$('#inputEmail_Reg').css('background-color', '#ffe6e6');
 			$('#error_regist').removeClass('errorHid').addClass('errorVis');
-			alert('bla');
-			return;
 		}
 		else if(!isValidEmailAddress($('#inputEmail_Reg').val())){
 			$('#inputEmail_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
@@ -496,7 +505,7 @@ function regist() {
 			data: dataUser,
 			success:function(argument) {
 				// result
-				alert(argument);
+				//alert(argument);
 			}
 		});
 	});
@@ -518,11 +527,13 @@ function checkNameReg(Value) {
 				$('#inputName_Reg').css('background-color', '#ffe6e6');
 				$('#logUniqError').removeClass('errorHid').addClass('errorVis');
 				$('#logUniqSuccess').removeClass('successVis').addClass('successHid');
+				disabledButton($('#reg_but'));
 				return;
 			}
 			else{
 				$('#logUniqError').removeClass('errorVis').addClass('errorHid');
 				$('#logUniqSuccess').removeClass('successHid').addClass('successVis');
+				activeButton($('#reg_but'));
 			}
 		}
 	});
@@ -539,14 +550,26 @@ function checkEmailReg(Value) {
 				$('#inputEmail_Reg').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 				$('#inputEmail_Reg').css('background-color', '#ffe6e6');
 				$('#emailUniqError').removeClass('errorHid').addClass('errorVis');
+				disabledButton($('#reg_but'));
 				return;
 			}
 			else{
 				$('#emailUniqError').removeClass('errorVis').addClass('errorHid');
+				activeButton($('#reg_but'));
 			}
 		}
 	});
 	
+}
+function disabledButton(Value) {
+	// body...
+	Value.attr('disabled', true);
+	Value.removeClass(' btn-primary').addClass(' btn-default');
+}
+function activeButton(Value) {
+	// body...
+	Value.attr('disabled', false);
+	Value.removeClass(' btn-default').addClass(' btn-primary');
 }
 function isValidEmailAddress(emailAddress) {
     var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;

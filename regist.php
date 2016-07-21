@@ -33,7 +33,7 @@
           <input type="password" id="inputPassword_Reg_re" class="form-control" placeholder="Kennword wieder" required>
         </div>
         <p class="errorHid" id="error_regist">* Füllen Sie alle Felder richtig aus.</p>
-        <button id="reg_but" class="btn btn-lg btn-primary btn-block" type="submit">Registrieren</button>
+        <button id="reg_but" class="btn btn-lg btn-block btn-primary" type="submit">Registrieren</button>
       </form>
       <div class="empty"></div>
       <?include 'includes/footer.php'; ?>
