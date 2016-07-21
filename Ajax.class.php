@@ -95,9 +95,30 @@
 			$result=$this->set($sql);
 				echo($result);
 		}
-		public function checkNameRegAction()
+		public function checkUserAction()
 		{
 			# code...
+			$sql="SELECT password FROM names WHERE email='$this->email'";
+			$arr=$this->getArray($sql);
+			$this->hash=$arr[0]['password'];
+			if ($arr==true) {
+				if (password_verify($this->password, $this->hash)) {
+    				// Success!
+					echo(1);
+				}
+				else{
+					echo(0);
+				}
+			}
+			else{
+				echo(0);
+			}
+			//print_r($arr);
+			
+		}
+		public function checkNameRegAction()
+		{
+			# name uniq
 			$sql="SELECT name FROM names WHERE name='$this->name'";
 			$arr=$this->getArray($sql);
 			if ($arr==true) {
@@ -112,7 +133,7 @@
 		}
 		public function checkEmailRegAction()
 		{
-			# code...
+			# email uniq
 			$sql="SELECT email FROM names WHERE email='$this->email'";
 			$arr=$this->getArray($sql);
 			if ($arr==true) {

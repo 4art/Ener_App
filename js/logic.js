@@ -261,23 +261,25 @@ function addNew() {//validation
 }
 function sigIn(){
 	//onchange valid
-	 var login=$('#inputEmail_Log').val();
+	 var email=$('#inputEmail_Log').val();
 	 var pass=$('#inputPassword_Log').val();
-	 login=$.trim(login);
+	 email=$.trim(email);
 	 pass=$.trim(pass);
 	$('#inputEmail_Log').change(function() {
-		login = $(this).val();
-		login = $.trim(login);
+		email = $(this).val();
+		email = $.trim(email);
 		$(this).css('property', 'value');
-		if (login=='' || login.length<2) {
+		if (email=='' || email.length<2) {
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_log').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#login_but'));
 		}
 		else{
 			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
 			$(this).css('background-color', 'white');
 			$('#error_log').removeClass('errorVis').addClass('errorHid');
+			activeButton($('#login_but'));
 		}
 
 	});
@@ -289,25 +291,44 @@ function sigIn(){
 			$(this).parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$(this).css('background-color', '#ffe6e6');
 			$('#error_log').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#login_but'));
+		}
+		else if(!isValidEmailAddress($('#inputEmail_Log').val())){
+			$('#inputEmail_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputEmail_Log').css('background-color', '#ffe6e6');
+			$('#error_log').removeClass('errorHid').addClass('errorVis');
+			$('#errorEmail_Log').removeClass('errorHid').addClass('errorVis');
+			disabledButton($('#login_but'));
+			return;	
 		}
 		else{
 			$(this).parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
 			$(this).css('background-color', 'white');
 			$('#error_log').removeClass('errorVis').addClass('errorHid');
+			$('#errorEmail_Log').removeClass('errorVis').addClass('errorHid');
+			activeButton($('#login_but'));
 		}
 
 	});
 	$('#login_but').click(function() {
-		if (login=='' || login.length<2) {
+		if (email=='' || email.length<2) {
 			$('#inputEmail_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 			$('#inputEmail_Log').css('background-color', '#ffe6e6');
 			$('#error_log').removeClass('errorHid').addClass('errorVis');
 			return;
 		}
+		else if(!isValidEmailAddress($('#inputEmail_Log').val())){
+			$('#inputEmail_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+			$('#inputEmail_Log').css('background-color', '#ffe6e6');
+			$('#error_log').removeClass('errorHid').addClass('errorVis');
+			$('#errorEmail_Log').removeClass('errorHid').addClass('errorVis');
+			return;	
+		}
 		else{
 			$('#inputEmail_Log').parent().removeClass('has-error has-feedback').addClass('has-success has-feedback');
 			$('#inputEmail_Log').css('background-color', 'white');
 			$('#error_log').removeClass('errorVis').addClass('errorHid');
+			$('#errorEmail_Log').removeClass('errorVis').addClass('errorHid');
 		}
 		if (pass=='' || pass.length<2) {
 			$('#inputPassword_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
@@ -320,6 +341,23 @@ function sigIn(){
 			$('#inputPassword_Log').css('background-color', 'white');
 			$('#error_log').removeClass('errorVis').addClass('errorHid');
 		}
+		$.ajax({
+			url: 'Ajax.php?action=checkUser',
+			type: 'POST',
+			dataType: 'html',
+			data: {email: email, password:pass},
+			success:function(argument) {
+				// check user name and password. 0=false, 1=true
+				/*if (argument==0) {
+
+					alert('fehler');
+				}
+				else{
+					
+				}*/
+				alert(argument);
+			}
+		});
 	});
 
 }
@@ -536,6 +574,7 @@ function checkNameReg(Value) {
 				activeButton($('#reg_but'));
 			}
 		}
+
 	});
 }
 function checkEmailReg(Value) {

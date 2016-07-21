@@ -13,7 +13,8 @@
         <h2 class="form-signin-heading">Bitte Loggen Sie sich ein.</h2>
         <div class="form-group">
           <label for="inputEmail" class="sr-only">Email Addresse</label>
-          <input type="test" id="inputEmail_Log" class="form-control" placeholder="Email addresse oder Login" required autofocus>
+          <input type="text" id="inputEmail_Log" class="form-control" placeholder="Email addresse" required autofocus>
+          <p class="errorHid" id="errorEmail_Log">* Schreiben Sie ihre Email Adresse</p>
         </div>
         <div class="form-group">
           <label for="inputPassword" class="sr-only">Kennword</label>
@@ -25,7 +26,7 @@
           </label>
           <p id="error_log" class="errorHid">* Füllen Sie alle Felder richtig aus.</p>
         </div>
-        <button id="login_but" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id="login_but" class="btn btn-lg btn-primary btn-block">Sign in</button>
       </form>
       <div class="empty"></div>
       <?include 'includes/footer.php'; ?>
