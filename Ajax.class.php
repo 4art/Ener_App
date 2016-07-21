@@ -110,6 +110,21 @@
 				echo($val);
 			}
 		}
+		public function checkEmailRegAction()
+		{
+			# code...
+			$sql="SELECT email FROM names WHERE email='$this->email'";
+			$arr=$this->getArray($sql);
+			if ($arr==true) {
+				# name is not uniq
+				$val=1;
+				echo($val);
+			}
+			else {
+				$val=0;
+				echo($val);
+			}
+		}
 		public function get($value)
 		{
 			# get as public
