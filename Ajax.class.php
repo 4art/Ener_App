@@ -88,28 +88,31 @@
 			
 			//echo($this->name.', '.$this->email.', '.$this->password);
 			//$this->hash=password_hash($this->password, PASSWORD_DEFAULT);
-			$this->hash=password_hash($this->password, PASSWORD_DEFAULT);
+			$this->hash=password_hash($this->password, PASSWORD_DEFAULT, array("cost" => 10));
 			//echo($this->hash);
 			$this->name=trim($this->name, "\x00..\x1F");
 			$sql="INSERT INTO names (name, email, password) VALUES ('$this->name', '$this->email', '$this->hash')";
 			$result=$this->set($sql);
 				echo($result);
+				header("Location: signin.php");
+				exit();
 		}
 		public function checkUserAction()
 		{
 			# code...
 			$sql="SELECT password FROM names WHERE email='$this->email'";
 			$arr=$this->getArray($sql);
-			$this->hash=$arr[0]['password'];
-			$this->hash='$$2y$10$Kf.jB9/00c3QTi8mzo1q2O4KFRoLTMtWaygqzREE1AgUCDS6.Xw7W';
 			//echo($this->hash);
+			//echo(strlen($this->hash));
 			if ($arr==true) {
+				$this->hash=$arr[0]['password'];
 				if (password_verify($this->password, $this->hash)) {
     				// Success!
 					echo('success');
+					/*header('Location: index.php');
+					exit();*/
 				}
 				else{
-					echo(0);
 				echo('error');
 				}
 			}
