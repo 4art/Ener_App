@@ -348,6 +348,8 @@ function sigIn(){
 			data: {email: $('#inputEmail_Log').val(), password:$('#inputPassword_Log').val()},
 			success:function(argument) {
 				// check user name and password. 0=false, 1=true
+				$('#inputPassword_Log').val('');
+				$('#inputEmail_Log').val('');
 				/*if (argument==0) {
 
 					alert('fehler');
@@ -355,7 +357,7 @@ function sigIn(){
 				else{
 					
 				}*/
-				alert(argument);
+				//alert(argument);
 			}
 		});
 	});
@@ -544,6 +546,11 @@ function regist() {
 			success:function(argument) {
 				// result
 				//alert(argument);
+				$('#inputName_Reg').val('');
+				$('#inputEmail_Reg').val('');
+				$('#inputPassword_Reg').val('');
+				$('#inputPassword_Reg_re').val('');
+
 			}
 		});
 	});

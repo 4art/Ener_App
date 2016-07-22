@@ -107,6 +107,7 @@
 			if ($arr==true) {
 				$this->hash=$arr[0]['password'];
 				if (password_verify($this->password, $this->hash)) {
+					header("Location: index.php");
     				// Success!
 					echo('success');
 					/*header('Location: index.php');
@@ -119,6 +120,7 @@
 			else{
 				echo('error');
 			}
+			exit();
 			//print_r($arr);
 			
 		}

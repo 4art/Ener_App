@@ -27,6 +27,7 @@
           <p id="error_log" class="errorHid">* Füllen Sie alle Felder richtig aus.</p>
         </div>
         <input type="button" id="login_but" class="btn btn-lg btn-primary btn-block" value="Sign in">
+        <a href="index.php" id="link" class="errorHid"></a>
       </form>
       <div class="empty"></div>
       <?include 'includes/footer.php'; ?>
