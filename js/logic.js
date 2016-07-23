@@ -1,9 +1,5 @@
 /*need to add!!!! 
-
-	jquery and php:
-		valid for limit to add identical product
-		valid onchange
-		float for weiget
+	username and button 'Abmelden' need make resposive for mobile devices
 */
 
 var i=2;
