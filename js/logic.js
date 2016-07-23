@@ -348,8 +348,19 @@ function sigIn(){
 			data: {email: $('#inputEmail_Log').val(), password:$('#inputPassword_Log').val()},
 			success:function(argument) {
 				// check user name and password. 0=false, 1=true
+				var result=jQuery.parseJSON(argument);
+				//alert(result[0]);
 				$('#inputPassword_Log').val('');
 				$('#inputEmail_Log').val('');
+				if(result[0]==1){
+					$('#info').css('color', 'green').html(firstToUpperCase(result[1]+', Sie haben sich erfolgreich eingelogt ')+'<a href="naehrwertzaeler.php">zum Nährwertzähler</a>');
+
+				}
+				else{
+					$('#info').css('color', '#ff8080').html('Login oder Kennwort ist falsch.');
+					$('#inputPassword_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					$('#inputEmail_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+				}
 				/*if (argument==0) {
 
 					alert('fehler');
@@ -357,7 +368,6 @@ function sigIn(){
 				else{
 					
 				}*/
-				//alert(argument);
 			}
 		});
 	});
@@ -620,4 +630,7 @@ function activeButton(Value) {
 function isValidEmailAddress(emailAddress) {
     var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
     return pattern.test(emailAddress);
-};
+}
+function firstToUpperCase( str ) {
+    return str.substr(0, 1).toUpperCase() + str.substr(1);
+}

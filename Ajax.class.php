@@ -100,25 +100,27 @@
 		public function checkUserAction()
 		{
 			# code...
-			$sql="SELECT password FROM names WHERE email='$this->email'";
+			$sql="SELECT password, name FROM names WHERE email='$this->email'";
 			$arr=$this->getArray($sql);
 			//echo($this->hash);
 			//echo(strlen($this->hash));
 			if ($arr==true) {
 				$this->hash=$arr[0]['password'];
 				if (password_verify($this->password, $this->hash)) {
-					header("Location: index.php");
     				// Success!
-					echo('success');
-					/*header('Location: index.php');
-					exit();*/
+    				$_SESSION['login']=$arr[0]['name'];
+					$data=array('1', $_SESSION['login']);
+					echo(json_encode($data));
+					//setcookie("val", $this->hash, time()+3600*24*360); 
 				}
 				else{
-				echo('error');
+					$data=array('0', $this->email);
+					echo(json_encode($data));
 				}
 			}
 			else{
-				echo('error');
+				$data=array('0', $this->email);
+				echo(json_encode($data));
 			}
 			exit();
 			//print_r($arr);

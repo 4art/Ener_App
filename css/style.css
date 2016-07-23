@@ -24,6 +24,12 @@ a{
 .resp_vis{
 	display: none;
 }
+.info{
+    color: green;
+}
+.info:first-letter{
+    text-transform: uppercase;
+}
 @media only screen and (max-width: 992px) {
     /* For mobile phones: */
     .col_1{
@@ -41,6 +47,7 @@ a{
     .col_5{
         
     }
+    
   /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
   
 

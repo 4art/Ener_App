@@ -28,6 +28,7 @@
         </div>
         <input type="button" id="login_but" class="btn btn-lg btn-primary btn-block" value="Sign in">
         <a href="index.php" id="link" class="errorHid"></a>
+        <h3 id="info"></h3>
       </form>
       <div class="empty"></div>
       <?include 'includes/footer.php'; ?>
