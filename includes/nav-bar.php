@@ -15,13 +15,13 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ernährung <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="naehrwertzaeler.php">Nährwertzähler</a></li>
-            <li><a href="#">Mein Ration</a></li>
+            <li><a href="myrat.php">Mein Ration</a></li>
           </ul>
         </li>
         <li><a href="#">Kontakt</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="myrat.php" class="user" id=userName></a></li>
+        <li><a href="myrat.php" class="resp_vis" id=userName></a></li>
         <li><a href="regist.php"><!--<span class="glyphicon glyphicon-user">--></span> Registration</a></li>
         <li><a href="signin.php"><!--<span class="glyphicon glyphicon-log-in">--></span> Einloggen</a></li>
       </ul>
