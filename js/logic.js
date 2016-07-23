@@ -353,7 +353,7 @@ function sigIn(){
 				$('#inputPassword_Log').val('');
 				$('#inputEmail_Log').val('');
 				if(result[0]==1){
-					$('#info').css('color', 'green').html(firstToUpperCase(result[1]+', Sie haben sich erfolgreich eingelogt ')+'<a href="naehrwertzaeler.php">zum Nährwertzähler</a>');
+					$('#info').css('color', 'green').html(firstToUpperCase(result[1]+', Sie haben sich erfolgreich eingelogt! ')+'<br><br><a href="naehrwertzaeler.php">Zum Nährwertzähler.</a>');
 
 				}
 				else{
