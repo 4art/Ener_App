@@ -22,6 +22,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="myrat.php" class="resp_vis" id=userName></a></li>
+        <li><a class="hidden"><input type="button" class="btn btn-success btn-xs" style="margin-top:-4px;" id="loginExit" value="Abmelden"></a></li>
         <li><a href="regist.php"><!--<span class="glyphicon glyphicon-user">--></span> Registration</a></li>
         <li><a href="signin.php"><!--<span class="glyphicon glyphicon-log-in">--></span> Einloggen</a></li>
       </ul>

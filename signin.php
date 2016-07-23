@@ -21,9 +21,9 @@
           <input type="password" id="inputPassword_Log" class="form-control" placeholder="Kennword" required>
         </div>
         <div class="checkbox">
-          <label>
+          <!--<label>
             <input type="checkbox" value="remember-me"> Merken
-          </label>
+          </label>-->
           <p id="error_log" class="errorHid">* Füllen Sie alle Felder richtig aus.</p>
         </div>
         <input type="button" id="login_but" class="btn btn-lg btn-primary btn-block" value="Sign in">
@@ -31,6 +31,7 @@
         <h3 id="info"></h3>
       </form>
       <div class="empty"></div>
+      <?include 'includes/js.php' ?>
       <?include 'includes/footer.php'; ?>
     </div> <!-- /container -->
 

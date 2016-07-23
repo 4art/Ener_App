@@ -14,6 +14,12 @@ a{
 .errorHid{
 	display: none;
 }
+.hidden{
+    display: none;
+}
+.visible{
+    display: inline-block;
+}
 .successHid{
     display: none;
 }
@@ -24,11 +30,11 @@ a{
 .resp_vis{
 	display: none;
 }
-.info{
-    color: green;
-}
-.info:first-letter{
-    text-transform: uppercase;
+.loadAnim{
+    -webkit-animation-name: rotateThis;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
 }
 @media only screen and (max-width: 992px) {
     /* For mobile phones: */

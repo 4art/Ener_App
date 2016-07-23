@@ -53,13 +53,21 @@
 	    	</tfoot>
 	  	</table>
 	</div>
-		<button type="button" class="btn btn-primary" id="button">Hinzufügen</button>
+		<button type="button" class="btn btn-primary" id="addColumn">Hinzufügen</button>
 		<br>
 		<p id="errorText" class="errorHid">*Fühllen Sie richtig die passende Felder aus.</p>
-	</form>
-  <br/><br/>
-  
-  <span><h4>Fehlt etwas?? Sie Konnen neue Datei<a id="addNeu"> hinzufügen.</a></h4></span>
+		</form>
+  		<br/><br/>
+  		<div class="hidden" id="sessionSuccess">
+			<button class="btn btn-danger" id="saveRation">Der Ration ins Profil Speichern</button>
+			<br>
+  		</div>
+  		<div id="sessionError" class="hidden" >
+  			<p class="errorVis">Loggen Sie sich ein, um der Ration ins Profil zu speichern. <a href="signin.php">Einloggen.</a></p>
+  		</div>
+		<span><h4>Fehlt etwas?? Sie Konnen neue Datei<a id="addNeu"> hinzufügen.</a></h4></span>
+		<br><br><br><br><br><br><br><br><br><br>
+
   <div id="modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
     
@@ -89,6 +97,7 @@
       
     </div>
   </div>
+      <?include 'includes/js.php' ?>
     <?include 'includes/footer.php'; ?>
 </div>
 </body>

@@ -136,6 +136,7 @@
 
 
       <!-- FOOTER -->
+      <?include 'includes/js.php' ?>
       <?include 'includes/footer.php'; ?>
   </div>
   

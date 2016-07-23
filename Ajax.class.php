@@ -34,6 +34,7 @@
 		}
 		public function checkReq()
 		{
+			session_start();
 			# check request
 			if ($this->action!='') {
 				# if isset
@@ -91,11 +92,12 @@
 			$this->hash=password_hash($this->password, PASSWORD_DEFAULT, array("cost" => 10));
 			//echo($this->hash);
 			$this->name=trim($this->name, "\x00..\x1F");
+			$this->name=strtolower($this->name);
+			$this->email=strtolower($this->email);
 			$sql="INSERT INTO names (name, email, password) VALUES ('$this->name', '$this->email', '$this->hash')";
 			$result=$this->set($sql);
+				$_SESSION['login']=$this->name;
 				echo($result);
-				header("Location: signin.php");
-				exit();
 		}
 		public function checkUserAction()
 		{
@@ -160,6 +162,24 @@
 		{
 			# get as public
 			return $value;
+		}
+		public function sessionCheckAction()
+		{
+			# code...
+			if (isset($_SESSION['login'])) {
+				$data=array('1', $_SESSION['login']);
+				echo(json_encode($data));
+			}
+			else{
+				$data=array('0', '');
+				echo(json_encode($data));
+
+			}
+		}
+		public function sessionCloseAction()
+		{
+			# code...
+			unset($_SESSION['login']);
 		}
 
 	}

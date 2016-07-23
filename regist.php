@@ -36,6 +36,7 @@
         <input type="button" id="reg_but" class="btn btn-lg btn-block btn-primary" value="Registrieren">
       </form>
       <div class="empty"></div>
+      <?include 'includes/js.php' ?>
       <?include 'includes/footer.php'; ?>
     </div> <!-- /container -->
 

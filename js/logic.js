@@ -7,7 +7,9 @@
 */
 
 var i=2;
+var ses;
 $(document).ready(function() {
+		sessionCheck();
 		autoCom();
 		prodCount();
 		prodAdd();
@@ -15,7 +17,7 @@ $(document).ready(function() {
 		addNew();
 		sigIn();
 		regist();
-	$('#button').click(function() {
+	$('#addColumn').click(function() {
 		var cop = $('#tCop').clone();
 		if ($('#tCop'+(i-1)).find('#product'+(i-1)).val()=="" || 
 			$('#tCop').find('#product'+(i-1)).val()=="") {
@@ -159,6 +161,7 @@ function prodCount(){
 		});
 }
 function prodAdd(){
+	//valid
 	$('#product'+(i-1)).blur(function() {
 		$(this).removeClass('error');
 		$('#weight'+(i-1)).addClass('error').val('');
@@ -353,13 +356,22 @@ function sigIn(){
 				$('#inputPassword_Log').val('');
 				$('#inputEmail_Log').val('');
 				if(result[0]==1){
+					$('#userName').removeClass('resp_vis').css('color', 'green').html(firstToUpperCase(result[1]));
 					$('#info').css('color', 'green').html(firstToUpperCase(result[1]+', Sie haben sich erfolgreich eingelogt! ')+'<br><br><a href="naehrwertzaeler.php">Zum Nährwertzähler.</a>');
+					$('#loginExit').parent().removeClass('hidden');
+					$('#loginExit').click(function(event) {
+					/* close session onclick */
+					location.reload();
+					sessionClose();
+				});
+					//setTimeout(function(){ location.reload(); }, 1000);
 
 				}
 				else{
 					$('#info').css('color', '#ff8080').html('Login oder Kennwort ist falsch.');
 					$('#inputPassword_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
 					$('#inputEmail_Log').parent().removeClass('has-success has-feedback').addClass('has-error has-feedback');
+					sessionClose();
 				}
 				/*if (argument==0) {
 
@@ -560,6 +572,7 @@ function regist() {
 				$('#inputEmail_Reg').val('');
 				$('#inputPassword_Reg').val('');
 				$('#inputPassword_Reg_re').val('');
+				location.reload();
 
 			}
 		});
@@ -633,4 +646,70 @@ function isValidEmailAddress(emailAddress) {
 }
 function firstToUpperCase( str ) {
     return str.substr(0, 1).toUpperCase() + str.substr(1);
+}
+function sessionClose() {
+	$.ajax({
+		url: 'Ajax.php?action=sessionClose',
+		type: 'POST',
+		dataType: 'html',
+		success:function(argument) {
+			// body...
+
+		}
+	});
+	
+}
+function sessionCheck(argument) {
+	// session check
+	$.ajax({
+		url: 'Ajax.php?action=sessionCheck',
+		type: 'POST',
+		dataType: 'html',
+		success:function(argument) {
+			// body...
+			//alert(argument);
+			var result=jQuery.parseJSON(argument);
+			if (result[0]==1) {
+				//nav-bar set name
+				$('#userName').removeClass('resp_vis').css('color', 'green').html(firstToUpperCase(result[1]));
+				$('#loginExit').parent().removeClass('hidden');
+				$('#loginExit').click(function(event) {
+					/* close session onclick */
+					location.reload();
+					sessionClose();
+				});
+				//naehrwertzaeler.php profile info
+				$('#sessionSuccess').removeClass('hidden');
+				addRation();
+			}
+			else{
+				//nav-bar set name
+				$('#userName').removeClass('resp_vis').css('color', '#ff8080').html('Gast');
+				//naehrwertzaeler.php profile info
+				$('#sessionError').removeClass('hidden');
+
+			}
+
+		}
+	});
+	
+}
+function addRation() {
+	// body...
+	$('#saveRation').click(function() {
+		/* save ration onClick fron table */
+		var count = i;
+		//alert(count);
+		for (var j = 1; j < count; j++) {
+			if (parseInt($('#protein'+j).text())!=0 || $('#protein'+j).text()!="") {
+				if ($('#product'+j).val()!='' || $('#weight'+j).val()!='') {
+					alert($('#product'+j).val()+' '+$('#weight'+j).val());
+
+					
+				}
+			}	
+		}
+
+
+	});
 }
