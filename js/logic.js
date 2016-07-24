@@ -677,6 +677,8 @@ function sessionCheck(argument) {
 				//naehrwertzaeler.php profile info
 				$('#sessionSuccess').removeClass('hidden');
 				addRation();
+				//myrat.php
+				showRation();
 			}
 			else{
 				//nav-bar set name
@@ -726,5 +728,57 @@ function addRation() {
 				location.reload();
 			}
 		});
+	});
+}
+function showRation() {
+	// on myrat.php
+	var weight=0;
+	var protein=0;
+	var fat=0;
+	var carbo=0;
+	var kcal=0;
+	$.ajax({
+		url: 'Ajax.php?action=showRation',
+		type: 'POST',
+		dataType: 'html',
+		success:function(argument) {
+			// body...
+			//console.log(argument);
+			var ration = jQuery.parseJSON(argument);
+			//alert(ration[0].product);
+			//alert(ration.length);
+			var ratCol=	$('#ratCol').clone();
+
+			for (var j = 0; j < ration.length; j++) {
+				ration[j].protein=to100GR(ration[j].protein);
+				ration[j].fat=to100GR(ration[j].fat);
+				ration[j].carbo=to100GR(ration[j].carbo);
+				ration[j].fat=to100GR(ration[j].fat);
+				ration[j].kcal=to100GR(ration[j].kcal);
+				$('#rationTable').append('<tr><th>'+ration[j].product+'</th><th>'+ration[j].weight+'</th><th>'+ration[j].protein+'</th><th>'+ration[j].fat+'</th><th>'+ration[j].carbo+'</th><th>'+ration[j].kcal+'</th><tr>');
+				weight+=parseFloat(ration[j].weight);
+				protein+=parseFloat(ration[j].protein);
+				fat+=parseFloat(ration[j].fat);
+				carbo+=parseFloat(ration[j].carbo);
+				kcal+=parseFloat(ration[j].carbo);
+			}
+			function to100GR(oldValue) {
+				// body...
+				oldValue=oldValue*100;
+				oldValue=oldValue.toFixed(2);
+				return oldValue;
+			}
+			weight=weight.toFixed(2);
+			protein=protein.toFixed(2);
+			fat=fat.toFixed(2);
+			carbo=carbo.toFixed(2);
+			kcal=kcal.toFixed(2);
+			$('#weiGenRation').text(weight);
+			$('#protGenRation').text(protein);
+			$('#fatGenRation').text(fat);
+			$('#carboGenRation').text(carbo);
+			$('#kcalGenRation').text(kcal);
+			//alert(ration[0].date);
+		}
 	});
 }

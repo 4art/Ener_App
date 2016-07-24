@@ -194,8 +194,14 @@
 				$result=$this->set($sql);
 			}
 			//print_r($rest_vars);
-
-
+		}
+		public function showRationAction()
+		{
+			# code...
+			$sql="SELECT /*names.name, */products.label AS product, ration.weight, products.protein, products.fat, products.carbo, products.kcal, ration.date FROM ration /*INNER JOIN names ON names.user_id=ration.user_id */INNER JOIN products ON products.product_id=ration.product_id";
+			$array=$this->getArray($sql);
+			$array=json_encode($array);
+			echo($array);
 		}
 
 	}
