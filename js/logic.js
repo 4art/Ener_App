@@ -693,19 +693,38 @@ function sessionCheck(argument) {
 function addRation() {
 	// body...
 	$('#saveRation').click(function() {
-		/* save ration onClick fron table */
+		/* save ration onClick from table */
 		var count = i;
 		//alert(count);
+		var array=[];
 		for (var j = 1; j < count; j++) {
 			if (parseInt($('#protein'+j).text())!=0 || $('#protein'+j).text()!="") {
 				if ($('#product'+j).val()!='' || $('#weight'+j).val()!='') {
-					alert($('#product'+j).val()+' '+$('#weight'+j).val());
+					//alert($('#product'+j).val()+' '+$('#weight'+j).val());
+					var prodName=$('#product'+j).val();
+					prodName=prodName.toLowerCase($('#product'+j).val());
+					array.push({
+						product: prodName,
+						weight:$('#weight'+j).val()
+					});
+					
 
 					
 				}
 			}	
 		}
-
-
+		var js=JSON.stringify(array);
+		$.ajax({
+			url: 'Ajax.php?action=addRation',
+			type: 'POST',
+			dataType: 'html',
+			data: js,
+			success:function(argument) {
+				// body...
+				//alert(argument);
+				alert('Ihre dateien Sind erfolgreich hinzufügt.');
+				location.reload();
+			}
+		});
 	});
 }

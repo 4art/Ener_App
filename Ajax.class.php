@@ -181,6 +181,22 @@
 			# code...
 			unset($_SESSION['login']);
 		}
+		public function addRationAction()
+		{
+			# code...
+			$rest_json = file_get_contents("php://input");
+			$rest_vars = json_decode($rest_json, true);
+			for ($i=0; $i < count($rest_vars); $i++) { 
+				# code...
+				$rest_vars[0]['product']=strtolower($rest_vars[0]['product']);
+				$rest_vars[0]['product']=trim($rest_vars[0]['product'], "\x00..\x1F");
+				$sql="INSERT INTO ration (user_id, product_id, weight) VALUES ((SELECT user_id FROM names WHERE name='".$_SESSION['login']."'), (SELECT product_id FROM products WHERE label='".$rest_vars[$i]['product']."'), '".$rest_vars[$i]['weight']."')";
+				$result=$this->set($sql);
+			}
+			//print_r($rest_vars);
+
+
+		}
 
 	}
 ?>
