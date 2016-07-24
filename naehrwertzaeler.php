@@ -65,7 +65,7 @@
 			<br><br><br><br><br><br><br><br><br>
   		</div>
   		<div id="sessionError" class="hidden" >
-  			<p class="errorVis">Loggen Sie sich ein, um der Ration ins Profil zu speichern. <a href="signin.php">Einloggen.</a></p>
+  			<p class="errorVis">Loggen Sie sich ein, damit der Ration ins Profil speichern. <a href="signin.php">Einloggen.</a></p>
   		</div>
 		<span><h4>Fehlt etwas?? Sie Konnen neue Datei<a id="addNeu"> hinzufügen.</a></h4></span>
 		<br><br><br><br><br><br><br><br><br><br>
