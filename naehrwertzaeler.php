@@ -60,7 +60,9 @@
   		<br/><br/>
   		<div class="hidden" id="sessionSuccess">
 			<button class="btn btn-danger" id="saveRation">Der Ration ins Profil Speichern</button>
-			<br>
+			<a style="margin-left:15px;" href="myrat.php">Mein Ration.</a>
+
+			<br><br><br><br><br><br><br><br><br>
   		</div>
   		<div id="sessionError" class="hidden" >
   			<p class="errorVis">Loggen Sie sich ein, um der Ration ins Profil zu speichern. <a href="signin.php">Einloggen.</a></p>

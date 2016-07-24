@@ -45,7 +45,9 @@
 		</div>
 	</div>
 		<a href="naehrwertzaeler.php"><h4>Neue Dateien hinzufügen</h3></a>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br>
+		<button type="button" class="btn btn-danger" id="deleteRation">Loschen der Ration</button>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br>
 		
       <?include 'includes/js.php' ?>
     <?include 'includes/footer.php'; ?>

@@ -229,22 +229,35 @@ function addNew() {//validation
 							}
 				
 								]};
-				$.ajax({
-					url: 'Ajax.php?action=setProd',
-					type: 'POST',
-					data: JSON.stringify(dataArr),
-					//contentType: 'application/json; charset=utf-8',
-					//dataType: 'json',
-					//async: false,
-					success: function(msg) {
-				        //alert(msg);
-				        prodNameNew.val('');
-				        protNew.val('');
-				        fatNew.val('');
-				        carboNew.val('');
-				        kcalNew.val('');
-				    }
-				});
+				var newProdName=$('#newProdName').val();
+				newProdName= $.trim(newProdName);
+				var newEiweis=$('#newEiweis').val();
+				newEiweis=$.trim(newEiweis);
+				var newCarbo=$('#newCarbo').val();
+				newCarbo=$.trim(newCarbo);
+				var newFat=$('#newFat').val();
+				newFat=$.trim(newFat);
+				var newKcal=$('#newKcal').val();
+				newKcal=$.trim(newKcal);
+				if (newProdName!='' && newEiweis!='' && newCarbo!='' && newFat!='' && newKcal!='') {
+
+					$.ajax({
+						url: 'Ajax.php?action=setProd',
+						type: 'POST',
+						data: JSON.stringify(dataArr),
+						//contentType: 'application/json; charset=utf-8',
+						//dataType: 'json',
+						//async: false,
+						success: function(msg) {
+					        //alert(msg);
+					        prodNameNew.val('');
+					        protNew.val('');
+					        fatNew.val('');
+					        carboNew.val('');
+					        kcalNew.val('');
+					    }
+					});
+				}
 		}
 		
 
@@ -679,6 +692,7 @@ function sessionCheck(argument) {
 				addRation();
 				//myrat.php
 				showRation();
+				deleteRation();
 			}
 			else{
 				//nav-bar set name
@@ -699,7 +713,7 @@ function addRation() {
 		var count = i;
 		//alert(count);
 		var array=[];
-		for (var j = 1; j < count; j++) {
+		for (var j = 1; j <count; j++) {
 			if (parseInt($('#protein'+j).text())!=0 || $('#protein'+j).text()!="") {
 				if ($('#product'+j).val()!='' || $('#weight'+j).val()!='') {
 					//alert($('#product'+j).val()+' '+$('#weight'+j).val());
@@ -724,7 +738,7 @@ function addRation() {
 			success:function(argument) {
 				// body...
 				//alert(argument);
-				alert('Ihre dateien Sind erfolgreich hinzufügt.');
+				//alert('Ihre dateien Sind erfolgreich hinzufügt.');
 				location.reload();
 			}
 		});
@@ -753,7 +767,6 @@ function showRation() {
 				ration[j].protein=to100GR(ration[j].protein);
 				ration[j].fat=to100GR(ration[j].fat);
 				ration[j].carbo=to100GR(ration[j].carbo);
-				ration[j].fat=to100GR(ration[j].fat);
 				ration[j].kcal=to100GR(ration[j].kcal);
 				$('#rationTable').append('<tr><th>'+ration[j].product+'</th><th>'+ration[j].weight+'</th><th>'+ration[j].protein+'</th><th>'+ration[j].fat+'</th><th>'+ration[j].carbo+'</th><th>'+ration[j].kcal+'</th><tr>');
 				weight+=parseFloat(ration[j].weight);
@@ -781,4 +794,18 @@ function showRation() {
 			//alert(ration[0].date);
 		}
 	});
+}
+function deleteRation() {
+	// delete ration
+	$('#deleteRation').click(function(event) {
+		/* Act on the event */
+		$.ajax({
+			url: 'Ajax.php?action=deleteRation',
+			type: 'POST',
+			dataType: 'html',
+		});
+		location.reload();
+	});
+	
+
 }

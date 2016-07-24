@@ -203,6 +203,12 @@
 			$array=json_encode($array);
 			echo($array);
 		}
+		public function deleteRationAction()
+		{
+			# code...
+			$sql="DELETE FROM ration WHERE user_id=(SELECT user_id FROM names WHERE name='".$_SESSION['login']."')";
+			$result=$this->set($sql);
+		}
 
 	}
 ?>
