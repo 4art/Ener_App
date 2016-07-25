@@ -8,7 +8,7 @@
 <div class="container" ng-app="">
 	<?include 'includes/nav-bar.php'; ?>
 	<h2>Nährwertzähler</h2>
-	<p>Hang zu schreiben am ersten Feld an.</p>
+	<p>Fang zu schreiben am ersten Feld an.</p>
 	<div class="table-responsive">
 		
 	  	<table class="table table-hover">
@@ -65,9 +65,9 @@
 			<br><br><br><br><br><br><br><br><br>
   		</div>
   		<div id="sessionError" class="hidden" >
-  			<p class="errorVis">Loggen Sie sich ein, damit der Ration ins Profil speichern. <a href="signin.php">Einloggen.</a></p>
+  			<p class="errorVis">Loggen Sie sich ein, damit den Ration ins Profil speichern. <a href="signin.php">Einloggen.</a></p>
   		</div>
-		<span><h4>Fehlt etwas?? Sie Konnen neue Datei<a id="addNeu"> hinzufügen.</a></h4></span>
+		<span><h4>Fehlt etwas?? Sie können neue Datei<a id="addNeu"> hinzufügen.</a></h4></span>
 		<br><br><br><br><br><br><br><br><br><br>
 
   <div id="modal" class="modal fade" role="dialog">
